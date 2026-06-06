@@ -36,6 +36,7 @@ FOWL PLAY is a short, living-room party quiz about birds. The TV host route is t
 - Use Supabase Realtime Postgres Changes as the main sync path, not Vercel websockets.
 - Keep answer scoring gentle: no wrong-answer penalty, small speed bonus only.
 - Add or update credits whenever photos or audio are added.
+- Add focused tests for new behavior. Run `npm run lint`, `npm run test`, and `npm run build` before committing substantial changes.
 
 ## Before Editing Next Files
 

@@ -615,7 +615,7 @@ function ScoreboardStage({
   );
 }
 
-function statusLabel(status?: GameStatus) {
+export function statusLabel(status?: GameStatus) {
   switch (status) {
     case "lobby":
       return "Lobby";
@@ -634,7 +634,7 @@ function statusLabel(status?: GameStatus) {
   }
 }
 
-function advanceLabel(status?: GameStatus) {
+export function advanceLabel(status?: GameStatus) {
   switch (status) {
     case "lobby":
       return "Start";

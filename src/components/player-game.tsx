@@ -341,7 +341,7 @@ export function PlayerGame({ roomCode }: { roomCode: string }) {
   );
 }
 
-function playerPrompt(status: Game["status"]) {
+export function playerPrompt(status: Game["status"]) {
   switch (status) {
     case "lobby":
       return "You are in. Watch the TV.";
