@@ -11,6 +11,7 @@ import { Card } from "@/components/ui/card";
 import { createRoomCode } from "@/lib/room-code";
 import { scoreAnswer } from "@/lib/scoring";
 import { createSupabaseBrowserClient } from "@/lib/supabase";
+import { MUSIC_MODE_EVENT, musicModeForStatus } from "@/lib/music";
 import { questions } from "@/lib/questions";
 import type { Answer, Game, GameStatus, Player } from "@/types/game";
 
@@ -166,6 +167,14 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
     // The timer effect intentionally watches rendered timer state.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [game, remainingMs]);
+
+  useEffect(() => {
+    window.dispatchEvent(
+      new CustomEvent(MUSIC_MODE_EVENT, {
+        detail: { mode: musicModeForStatus(game?.status) },
+      }),
+    );
+  }, [game?.status]);
 
   async function updateGame(fields: Partial<Game>) {
     if (!supabase || !game) {

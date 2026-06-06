@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { avatars, type AvatarId } from "@/data/avatars";
+import { MUSIC_MODE_EVENT, musicModeForStatus } from "@/lib/music";
 import { createSupabaseBrowserClient } from "@/lib/supabase";
 import { questions } from "@/lib/questions";
 import type { Answer, Game, Player } from "@/types/game";
@@ -138,6 +139,14 @@ export function PlayerGame({ roomCode }: { roomCode: string }) {
 
     return () => window.clearInterval(interval);
   }, [player, supabase]);
+
+  useEffect(() => {
+    window.dispatchEvent(
+      new CustomEvent(MUSIC_MODE_EVENT, {
+        detail: { mode: musicModeForStatus(game?.status) },
+      }),
+    );
+  }, [game?.status]);
 
   async function joinGame(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
