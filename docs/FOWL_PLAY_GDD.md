@@ -106,7 +106,9 @@ This round is the biggest laugh generator and the most Jackbox-y. It adds build 
 
 **Key reliability decision: bake a static question bank into the app. Do not call any live API during the party.** Use open data ahead of time to build the bank, then ship it as JSON plus local assets. Zero runtime dependency means nothing can fail mid-party.
 
-Target: 30 to 50 questions, mixed difficulty, mostly approachable. Aim for delight and "huh, neat" facts over obscurity.
+Current implementation: 24 questions, mixed difficulty, mostly approachable. Mix is 10 multiple choice, 8 Name That Bird photo rounds, and 6 Name That Call audio rounds. Aim for delight and "huh, neat" facts over obscurity.
+
+Future target if this becomes more than a party build: 30 to 50 questions plus runtime shuffling/subset selection, so each game can stay short without always playing the same order.
 
 ### Open data sources (used at build time, not runtime)
 - **Wikipedia / Wikimedia Commons**: bird facts and freely licensed photos. Download images locally and keep an attributions file (most are CC-BY or public domain).
@@ -136,7 +138,7 @@ Respect CC attribution: ship a short `CREDITS.md` or an in-game credits screen l
 ## 11. Tuning Decisions (locked)
 
 - Round types: Multiple Choice, Name That Bird, Name That Call. No bluff round in v1.
-- Length: short, ~8-10 questions, roughly 10 minutes.
+- Length: expanded bank of 24 questions, roughly 20 minutes if played straight through. Host Skip keeps the pace flexible; a future shuffle/subset pass can restore a shorter 8-12 question game length.
 - Vibe: casual but with a visible leaderboard. Gentle speed bonus, no penalties.
 
 Still open: whether to add a small custom round of inside-joke questions for your wife.

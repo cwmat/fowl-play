@@ -7,10 +7,10 @@ const projectRoot = process.cwd();
 
 describe("question bank", () => {
   it("contains the intended short-party question count and mix", () => {
-    expect(questions).toHaveLength(12);
-    expect(questions.filter((question) => question.type === "multiple_choice")).toHaveLength(5);
-    expect(questions.filter((question) => question.type === "name_that_bird")).toHaveLength(4);
-    expect(questions.filter((question) => question.type === "name_that_call")).toHaveLength(3);
+    expect(questions).toHaveLength(24);
+    expect(questions.filter((question) => question.type === "multiple_choice")).toHaveLength(10);
+    expect(questions.filter((question) => question.type === "name_that_bird")).toHaveLength(8);
+    expect(questions.filter((question) => question.type === "name_that_call")).toHaveLength(6);
   });
 
   it("keeps answer indexes inside each choice set", () => {

@@ -6,15 +6,15 @@ A Jackbox-style local party quiz about birds. The host runs the TV view from a l
 
 - Next.js 16 App Router + TypeScript
 - Tailwind CSS 4 with a neo-brutalist visual base
-- Static question bank at `public/questions.json`
-- Placeholder host and phone routes:
+- Static 24-question bank at `public/questions.json`
+- Live host and phone routes:
   - `/` launch console
-  - `/host` TV host shell with QR preview
+  - `/host` TV host view with QR, lobby, questions, scoring, and final results
   - `/play` room-code entry
-  - `/play/[code]` phone/player shell
-- Supabase client helper ready for Realtime work
-- Supabase schema starter at `supabase/schema.sql`
-- Asset folders ready for avatars, bird photos, and calls
+  - `/play/[code]` phone/player join and answer flow
+- Supabase Realtime client wiring for shared game state
+- Supabase schema at `supabase/schema.sql`
+- Local avatars, bird photos, calls, music, and SFX in `public/`
 
 ## Getting Started
 
@@ -48,8 +48,10 @@ The source artifacts live in `docs/`. The recommended v1 is:
 - `public/avatars/` - generated square sticker avatars from `docs/avatars.txt`
 - `public/birds/` - cropped bird photos for Name That Bird
 - `public/calls/` - short host-played audio clips for Name That Call
+- `public/music/` - host/home background loops
+- `public/sfx/` - randomized button click sounds
 
-Keep photo and audio credits in a future `CREDITS.md`.
+Keep photo and audio credits in `CREDITS.md`; see `docs/ASSET_MAP.md` for the runtime asset map.
 
 ## Scripts
 

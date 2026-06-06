@@ -1,76 +1,85 @@
-# FOWL PLAY — Starter Question Bank and Media Sources
+# FOWL PLAY - Question Bank and Media Sources
 
-12 questions (10 to 12 for a short game, 2 spares). Mix: 5 multiple choice, 4 name that bird, 3 name that call. The machine-readable version is `questions.json`. This file is the human-readable list plus where to get every photo and sound, with licenses.
+24 questions are currently shipped in `public/questions.json`. Mix: 10 multiple choice, 8 Name That Bird photo rounds, and 6 Name That Call audio rounds.
 
-Facts are written fresh, so you can copy them freely. Photos and audio have licenses, noted below. For a private one-time party, NonCommercial (NC) licenses are fine. Keep an in-game or printed credits list to respect attribution.
+Facts are written fresh for this project. Photos and audio have licenses, noted below. For a private party, NonCommercial audio licenses are fine. Before a public/commercial deployment, re-check every source page and license.
 
 ---
 
-## Round 1: Multiple Choice (no media)
+## Multiple Choice
 
 1. **Which of these birds can fly backwards?** -> Hummingbird
 2. **What do you call a group of crows?** -> A murder
 3. **Which bird is the fastest animal on Earth when diving?** -> Peregrine Falcon
 4. **That fierce screech an eagle makes in the movies is usually dubbed from which bird?** -> Red-tailed Hawk
 5. **About how far can an owl rotate its head?** -> 270 degrees
+6. **Which bird makes the longest regular migration on Earth?** -> Arctic Tern
+7. **Which living bird lays the largest eggs?** -> Ostrich
+8. **Which bird is famous for mimicking camera shutters, chainsaws, and other wild sounds?** -> Superb Lyrebird
+9. **Which bird is known for shaping tools to fish food out of tight spaces?** -> New Caledonian Crow
+10. **Which bird feeds its chicks a milk-like food made in its crop?** -> Pigeon
 
-## Round 2: Name That Bird (photo)
+## Name That Bird
 
-6. Atlantic Puffin
-7. Flamingo
-8. Peacock
-9. Toucan
+11. Atlantic Puffin - `public/birds/puffin.jpg`
+12. Flamingo - `public/birds/flamingo.jpg`
+13. Peacock - `public/birds/peacock.jpg`
+14. Toucan - `public/birds/toucan.jpg`
+15. Northern Cardinal - `public/birds/cardinal.jpg`
+16. Blue Jay - `public/birds/blue_jay.jpg`
+17. Mallard - `public/birds/mallard.jpg`
+18. Bald Eagle - `public/birds/bald_eagle.jpg`
 
-## Round 3: Name That Call (audio, play on the TV only)
+## Name That Call
 
-10. Common Loon
-11. Barred Owl
-12. Mourning Dove
+19. Common Loon - `public/calls/loon.mp3`
+20. Barred Owl - `public/calls/barred_owl.mp3`
+21. Mourning Dove - `public/calls/mourning_dove.mp3`
+22. American Robin - `public/calls/american_robin.mp3`
+23. Red-winged Blackbird - `public/calls/red_winged_blackbird.mp3`
+24. American Herring Gull - `public/calls/herring_gull.mp3`
 
 ---
 
 ## Photo Sources
 
-Download to `/public/birds/`. Always open the file's page, confirm the current license, and note the author for credits. Crop to a clean square for the TV.
+Download to `public/birds/`. Always open the file's page, confirm the current license, and note the author for credits. Crop to a clean square for the TV.
 
-| Question | Bird | Verified source | License |
-|----------|------|-----------------|---------|
-| q006 | Atlantic Puffin | `commons.wikimedia.org/wiki/File:Atlantic_Puffin_in_flight.jpg` (by Thomas Gansow) | Public Domain (no attribution required, but credit is polite) |
-| q007 | Flamingo | Wikimedia Commons category: `commons.wikimedia.org/wiki/Category:Phoenicopterus` | Pick a CC-BY or CC-BY-SA image, note author |
-| q008 | Peacock | Wikimedia Commons category: `commons.wikimedia.org/wiki/Category:Pavo_cristatus` | Pick a CC-BY or CC-BY-SA image, note author |
-| q009 | Toucan | Wikimedia Commons category: `commons.wikimedia.org/wiki/Category:Ramphastos` | Pick a CC-BY or CC-BY-SA image, note author |
+| Question | Bird | Local file | Source | License |
+|----------|------|------------|--------|---------|
+| q006 | Atlantic Puffin | `puffin.jpg` | https://www.inaturalist.org/observations/277865524 | CC BY |
+| q007 | Greater Flamingo | `flamingo.jpg` | https://www.inaturalist.org/observations/61500462 | CC0 |
+| q008 | Indian Peafowl | `peacock.jpg` | https://www.inaturalist.org/observations/226862836 | CC BY |
+| q009 | Toco Toucan | `toucan.jpg` | https://www.inaturalist.org/observations/143502779 | CC0 |
+| q018 | Northern Cardinal | `cardinal.jpg` | https://commons.wikimedia.org/wiki/File:Northern_cardinal_male_(84909).jpg | CC BY-SA 4.0 |
+| q019 | Blue Jay | `blue_jay.jpg` | https://commons.wikimedia.org/wiki/File:Cyanocitta-cristata-004.jpg | CC BY-SA 3.0 |
+| q020 | Mallard | `mallard.jpg` | https://www.inaturalist.org/observations/369050683 | CC0 |
+| q021 | Bald Eagle | `bald_eagle.jpg` | https://www.inaturalist.org/observations/369029505 | CC0 |
 
-Tip: photographer **Charles J. Sharp (Sharp Photography)** has clean, well-lit CC-BY-SA photos of almost every common bird on Wikimedia Commons. Great for crisp trivia images. Just attribute him.
+## Audio Sources
 
-## Audio Sources (xeno-canto)
+Download to `public/calls/`. Trim to about 5 seconds of the clearest call. Each recording's exact license is on its page, so confirm before public use. Prefer licenses without "NoDerivs" (ND) when trimming.
 
-Download to `/public/calls/`. Trim to about 5 seconds of the clearest call. Each recording's exact license is on its page, so confirm before use. Most are Creative Commons BY-NC-SA, which is fine for a private party. If you plan to trim, prefer a license without "NoDerivs" (ND).
+| Question | Bird | Local file | Recording | Recordist | Notes |
+|----------|------|------------|-----------|-----------|-------|
+| q010 | Common Loon | `loon.mp3` | https://xeno-canto.org/479757 | Sunny Tseng | Iconic loon call. |
+| q011 | Barred Owl | `barred_owl.mp3` | https://xeno-canto.org/602835 | Steve Hampton | Classic "who cooks for you" owl call. |
+| q012 | Mourning Dove | `mourning_dove.mp3` | https://xeno-canto.org/354052 | Lance A. M. Benner | Soft coo often mistaken for an owl. |
+| q022 | American Robin | `american_robin.mp3` | https://xeno-canto.org/909143 | Thomas Ryder Payne | Short alarm-call clip. |
+| q023 | Red-winged Blackbird | `red_winged_blackbird.mp3` | https://xeno-canto.org/557143 | Josh Barron | Short "tiny bomb" alarm-call clip. |
+| q024 | American Herring Gull | `herring_gull.mp3` | https://xeno-canto.org/636548 | Thomas Ryder Payne | Classic gull call. |
 
-| Question | Bird | Recording | Recordist | Notes |
-|----------|------|-----------|-----------|-------|
-| q010 | Common Loon | `xeno-canto.org/479757` | Sunny Tseng | Iconic wail, tremolo, and yodel. CC BY-NC-SA 4.0 (allows trimming). |
-| q011 | Barred Owl | `xeno-canto.org/602835` | Steve Hampton | The classic "who cooks for you" call. Confirm license on page. |
-| q012 | Mourning Dove | `xeno-canto.org/354052` | Lance A.M. Benner | The soft, sad coo. Confirm license on page. |
+## Attribution Snippet
 
-How to download from xeno-canto: open the page, use the "Download audio file" link. Convert to mp3 if needed and trim with any free editor (Audacity works).
-
-## Attribution Snippet (drop into a credits screen or CREDITS.md)
-
-```
+```text
 Bird photos and sounds used under Creative Commons and public domain licenses.
-Audio from xeno-canto.org: Common Loon (Sunny Tseng, XC479757),
-Barred Owl (Steve Hampton, XC602835), Mourning Dove (Lance A.M. Benner, XC354052).
-Puffin photo by Thomas Gansow (public domain, Wikimedia Commons).
-Additional photos from Wikimedia Commons, see individual files for authors and licenses.
+Photos from iNaturalist and Wikimedia Commons; audio from xeno-canto.org.
+See CREDITS.md for per-file authors, licenses, and source URLs.
 ```
 
-## Notes for the Build
+## Build Notes
 
-- The audio round plays through the laptop and TV speakers only. Do not try to autoplay sound on player phones.
+- Audio rounds play through the host TV only. Do not try to autoplay calls on player phones.
 - Keep images well under 1 MB each after cropping so the static bundle stays light.
-- Shuffle the answer choices at runtime so the correct one is not always first.
-- If a question flops on the night, the host Skip button drops it. That is what the 2 spare questions are for.
-
-## Easy Ways to Extend Later
-
-Good, crowd-friendly birds to add if you want more: Northern Cardinal, Blue Jay, Mallard, Canada Goose, Pelican, Penguin, Ostrich, Bald Eagle, Robin, Owl (Great Horned), Hummingbird, Woodpecker. All have plentiful CC photos and xeno-canto recordings.
+- Current bank keeps the answer key exactly as authored in JSON. A future polish pass should shuffle choices at runtime.
+- If a question flops on the night, the host Skip button drops it.
