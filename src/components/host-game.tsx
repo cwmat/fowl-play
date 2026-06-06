@@ -236,8 +236,57 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
     }
   }
 
+  async function restartGame() {
+    if (!supabase || !game) {
+      return;
+    }
+
+    setBusy(true);
+    setError(null);
+
+    const [{ error: answersError }, { error: playersError }] = await Promise.all([
+      supabase.from("answers").delete().eq("game_id", game.id),
+      supabase.from("players").update({ score: 0 }).eq("game_id", game.id),
+    ]);
+
+    if (answersError || playersError) {
+      setError(answersError?.message ?? playersError?.message ?? "Could not restart game.");
+      setBusy(false);
+      return;
+    }
+
+    const { data, error: gameError } = await supabase
+      .from("games")
+      .update({
+        status: "lobby",
+        current_q_index: 0,
+        question_started_at: null,
+      })
+      .eq("id", game.id)
+      .select()
+      .single();
+
+    setBusy(false);
+
+    if (gameError) {
+      setError(gameError.message);
+      return;
+    }
+
+    setAnswers([]);
+    setPlayers((currentPlayers) =>
+      currentPlayers.map((player) => ({ ...player, score: 0 })),
+    );
+    setGame(data as Game);
+  }
+
   async function advanceGame() {
     if (!game) {
+      return;
+    }
+
+    if (game.status === "finished") {
+      await restartGame();
       return;
     }
 
@@ -306,7 +355,11 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
               <Play aria-hidden="true" />
               {advanceLabel(game?.status)}
             </Button>
-            <Button className="bg-party-orange" disabled={busy || !game} onClick={skipQuestion}>
+            <Button
+              className="bg-party-orange"
+              disabled={busy || !game || game.status === "finished"}
+              onClick={skipQuestion}
+            >
               <SkipForward aria-hidden="true" />
               Skip
             </Button>
@@ -497,7 +550,7 @@ function ScoreboardStage({
           {status === "finished" ? "final results" : "scoreboard"}
         </Badge>
         <span className="border-4 border-ink bg-party-yellow px-4 py-2 text-xl font-black shadow-[4px_4px_0_#111]">
-          Next up: question recap
+          {status === "finished" ? "Ready for a rematch" : "Next up: question recap"}
         </span>
       </div>
 
@@ -594,7 +647,7 @@ function advanceLabel(status?: GameStatus) {
     case "scoreboard":
       return "Next";
     case "finished":
-      return "Finished";
+      return "Play again";
     default:
       return "Loading";
   }
