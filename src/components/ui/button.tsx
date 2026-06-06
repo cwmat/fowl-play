@@ -46,6 +46,7 @@ export function ButtonLink({
         sizes[size],
         className,
       )}
+      data-button-sfx="true"
       {...props}
     >
       {children}
