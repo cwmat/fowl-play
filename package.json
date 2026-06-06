@@ -1,5 +1,5 @@
 {
-  "name": "next-scaffold",
+  "name": "fowl-play",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,9 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.107.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.17.0",
     "next": "16.2.7",
+    "qrcode.react": "^4.2.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

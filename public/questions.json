@@ -1,0 +1,122 @@
+[
+  {
+    "id": "q001",
+    "type": "multiple_choice",
+    "prompt": "Which of these birds can fly backwards?",
+    "media": { "image": null, "audio": null },
+    "choices": ["Hummingbird", "Bald Eagle", "Emperor Penguin", "Ostrich"],
+    "answer_index": 0,
+    "fun_fact": "Hummingbirds are the only birds that can truly fly backwards, thanks to wings that rotate in a near figure-eight.",
+    "difficulty": 1
+  },
+  {
+    "id": "q002",
+    "type": "multiple_choice",
+    "prompt": "What do you call a group of crows?",
+    "media": { "image": null, "audio": null },
+    "choices": ["A murder", "A giggle", "A parade", "A bouquet"],
+    "answer_index": 0,
+    "fun_fact": "A group of crows is called a murder. A group of ravens, meanwhile, is an unkindness.",
+    "difficulty": 1
+  },
+  {
+    "id": "q003",
+    "type": "multiple_choice",
+    "prompt": "Which bird is the fastest animal on Earth when diving?",
+    "media": { "image": null, "audio": null },
+    "choices": ["Peregrine Falcon", "Mallard Duck", "Albatross", "Ostrich"],
+    "answer_index": 0,
+    "fun_fact": "A peregrine falcon in a hunting dive can exceed 200 miles per hour, making it the fastest animal alive.",
+    "difficulty": 2
+  },
+  {
+    "id": "q004",
+    "type": "multiple_choice",
+    "prompt": "That fierce screech an eagle makes in the movies is usually dubbed from which bird?",
+    "media": { "image": null, "audio": null },
+    "choices": ["Red-tailed Hawk", "Seagull", "Turkey", "Crow"],
+    "answer_index": 0,
+    "fun_fact": "Bald eagles actually make weak, chirpy sounds, so filmmakers usually dub in the dramatic scream of a red-tailed hawk.",
+    "difficulty": 2
+  },
+  {
+    "id": "q005",
+    "type": "multiple_choice",
+    "prompt": "About how far can an owl rotate its head?",
+    "media": { "image": null, "audio": null },
+    "choices": ["270 degrees", "90 degrees", "360 degrees", "45 degrees"],
+    "answer_index": 0,
+    "fun_fact": "Owls can rotate their heads about 270 degrees. Their eyes are fixed in place, so turning the head is how they look around.",
+    "difficulty": 2
+  },
+  {
+    "id": "q006",
+    "type": "name_that_bird",
+    "prompt": "Name that bird!",
+    "media": { "image": "/birds/puffin.jpg", "audio": null },
+    "choices": ["Atlantic Puffin", "Toucan", "Penguin", "Macaw"],
+    "answer_index": 0,
+    "fun_fact": "Puffins can hold a dozen or more small fish crosswise in their beak at once.",
+    "difficulty": 1
+  },
+  {
+    "id": "q007",
+    "type": "name_that_bird",
+    "prompt": "Name that bird!",
+    "media": { "image": "/birds/flamingo.jpg", "audio": null },
+    "choices": ["Flamingo", "Stork", "Crane", "Ibis"],
+    "answer_index": 0,
+    "fun_fact": "Flamingos get their pink color from the shrimp and algae they eat. A group of them is a flamboyance.",
+    "difficulty": 1
+  },
+  {
+    "id": "q008",
+    "type": "name_that_bird",
+    "prompt": "Name that bird!",
+    "media": { "image": "/birds/peacock.jpg", "audio": null },
+    "choices": ["Peacock", "Pheasant", "Turkey", "Parrot"],
+    "answer_index": 0,
+    "fun_fact": "Only the males are technically peacocks. Females are peahens, and the species together are peafowl.",
+    "difficulty": 1
+  },
+  {
+    "id": "q009",
+    "type": "name_that_bird",
+    "prompt": "Name that bird!",
+    "media": { "image": "/birds/toucan.jpg", "audio": null },
+    "choices": ["Toucan", "Hornbill", "Parrot", "Kingfisher"],
+    "answer_index": 0,
+    "fun_fact": "A toucan's giant beak is mostly hollow and helps it regulate body temperature, not just grab fruit.",
+    "difficulty": 1
+  },
+  {
+    "id": "q010",
+    "type": "name_that_call",
+    "prompt": "Name that call!",
+    "media": { "image": null, "audio": "/calls/loon.mp3" },
+    "choices": ["Common Loon", "Seagull", "Duck", "Owl"],
+    "answer_index": 0,
+    "fun_fact": "The loon's haunting wail is the classic sound of northern lakes at night.",
+    "difficulty": 2
+  },
+  {
+    "id": "q011",
+    "type": "name_that_call",
+    "prompt": "Name that call!",
+    "media": { "image": null, "audio": "/calls/barred_owl.mp3" },
+    "choices": ["Barred Owl", "Hawk", "Crow", "Mourning Dove"],
+    "answer_index": 0,
+    "fun_fact": "Birders memorize the barred owl by its phrase: 'Who cooks for you? Who cooks for you all?'",
+    "difficulty": 2
+  },
+  {
+    "id": "q012",
+    "type": "name_that_call",
+    "prompt": "Name that call!",
+    "media": { "image": null, "audio": "/calls/mourning_dove.mp3" },
+    "choices": ["Mourning Dove", "Owl", "Pigeon", "Cuckoo"],
+    "answer_index": 0,
+    "fun_fact": "The mourning dove's soft, sad coo is so iconic that people often mistake it for an owl.",
+    "difficulty": 2
+  }
+]
