@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Play, Plus, SkipForward, Trophy } from "lucide-react";
+import { ImageIcon, ListChecks, Play, Plus, SkipForward, Trophy, Volume2 } from "lucide-react";
 import { AvatarTile } from "@/components/avatar-tile";
 import { QRCodePanel } from "@/components/qr-code";
 import { Badge } from "@/components/ui/badge";
@@ -17,6 +17,30 @@ import type { Answer, Game, GameStatus, Player } from "@/types/game";
 
 const HOST_GAME_KEY = "fowl-play-host-game-id";
 const QUESTION_TIME_LIMIT_MS = 15_000;
+
+export const LOBBY_RULES = [
+  "Scan the room code and join on your phone.",
+  "Pick a bird name and avatar before the host starts.",
+  "Answer fast for more points.",
+  "Watch the TV for reveals, facts, and standings.",
+] as const;
+
+export const LOBBY_MODES = [
+  {
+    label: "Multiple choice",
+    detail: "Quick bird trivia with four answers.",
+  },
+  {
+    label: "Name that bird",
+    detail: "Photo rounds for sharp-eyed spotters.",
+  },
+  {
+    label: "Name that call",
+    detail: "Audio rounds for brave ears.",
+  },
+] as const;
+
+const LOBBY_MODE_ICONS = [ListChecks, ImageIcon, Volume2] as const;
 
 export function HostGame({ siteUrl }: { siteUrl: string }) {
   const supabase = useMemo(() => createSupabaseBrowserClient(), []);
@@ -386,7 +410,9 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
         </Card>
 
         <div className="grid gap-5">
-          {game?.status === "scoreboard" || game?.status === "finished" ? (
+          {!game || game.status === "lobby" ? (
+            <LobbyStage loading={!game} playerCount={players.length} />
+          ) : game.status === "scoreboard" || game.status === "finished" ? (
             <ScoreboardStage
               currentQuestion={currentQuestion}
               players={rankedPlayers}
@@ -446,6 +472,70 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
         </div>
       </section>
     </main>
+  );
+}
+
+function LobbyStage({
+  loading,
+  playerCount,
+}: {
+  loading: boolean;
+  playerCount: number;
+}) {
+  return (
+    <Card className="bg-white p-5 sm:p-8">
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+        <Badge className="bg-party-blue">{loading ? "Loading" : "Lobby"}</Badge>
+        <span className="border-4 border-ink bg-party-yellow px-4 py-2 text-xl font-black shadow-[4px_4px_0_#111]">
+          {playerCount} joined
+        </span>
+      </div>
+
+      <h1 className="text-5xl font-black leading-none sm:text-7xl">Gather the flock</h1>
+      <p className="mt-5 max-w-3xl text-2xl font-black leading-tight">
+        Scan the code, choose a bird, and get ready for quick rounds of feathered nonsense.
+      </p>
+
+      <div className="mt-7 grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div className="border-4 border-ink bg-party-yellow p-5 shadow-[6px_6px_0_#111]">
+          <h2 className="text-3xl font-black">Rules of the roost</h2>
+          <ol className="mt-4 grid gap-3">
+            {LOBBY_RULES.map((rule, index) => (
+              <li className="flex gap-3 text-xl font-black" key={rule}>
+                <span className="grid h-9 w-9 shrink-0 place-items-center border-4 border-ink bg-white text-lg shadow-[3px_3px_0_#111]">
+                  {index + 1}
+                </span>
+                <span>{rule}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <div className="border-4 border-ink bg-paper p-5 shadow-[6px_6px_0_#111]">
+          <h2 className="text-3xl font-black">What might hatch</h2>
+          <div className="mt-4 grid gap-3">
+            {LOBBY_MODES.map((mode, index) => {
+              const ModeIcon = LOBBY_MODE_ICONS[index];
+
+              return (
+                <div
+                  className="grid grid-cols-[48px_1fr] items-center gap-3 border-4 border-ink bg-white p-3 shadow-[4px_4px_0_#111]"
+                  key={mode.label}
+                >
+                  <span className="grid h-12 w-12 place-items-center bg-party-blue">
+                    <ModeIcon className="h-7 w-7" aria-hidden="true" />
+                  </span>
+                  <span>
+                    <span className="block text-2xl font-black">{mode.label}</span>
+                    <span className="block text-lg font-black">{mode.detail}</span>
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </Card>
   );
 }
 
