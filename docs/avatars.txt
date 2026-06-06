@@ -1,0 +1,30 @@
+these are ai prompts for the cahracters in th game should do square aspect ratio 1:1 and just use calls to GPT2 in chatgpt
+
+
+
+
+Here are your 8 silly bird avatars, sticker style so they read well as icons. Save outputs to /public/avatars/.
+
+Grumpy Owl
+grumpy cartoon owl, big angry eyebrows, fluffy round body, arms crossed, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny
+
+Party Pidgeon
+chubby city pigeon wearing a tiny party hat, confetti, googly excited eyes, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny
+
+Cool Flamingo
+pink flamingo wearing sunglasses, relaxed confident pose, one leg up, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cool and funny
+
+Derpy Duck
+goofy yellow duck with crossed derpy eyes, tongue out, silly tilted head, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny
+
+Wizard Raven
+black raven wearing a tiny pointed wizard hat and holding a sparkly wand, mischievous eyes, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, funny
+
+Disco Chicken
+chicken under a disco ball, mid dance move, sparkles, groovy expression, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, funny and energetic
+
+Buff Penguin
+muscular penguin flexing big arms, confident grin, tiny body big muscles, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, silly and funny
+
+Detective Seagull
+seagull wearing a detective hat and holding a magnifying glass, suspicious squinting eyes, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, funny
