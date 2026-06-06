@@ -30,6 +30,7 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
     (answer) => answer.q_index === game?.current_q_index,
   );
   const answeredCount = new Set(currentAnswers.map((answer) => answer.player_id)).size;
+  const rankedPlayers = [...players].sort((a, b) => b.score - a.score);
   const joinUrl = game ? `${siteUrl}/play/${game.room_code}` : `${siteUrl}/play`;
   const remainingMs =
     game?.status === "answering" && game.question_started_at
@@ -322,42 +323,21 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
         </Card>
 
         <div className="grid gap-5">
-          <Card className="bg-white p-5 sm:p-8">
-            <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-              <Badge className="bg-party-blue">{game?.status ?? "loading"}</Badge>
-              <span className="border-4 border-ink bg-party-yellow px-4 py-2 text-2xl font-black shadow-[4px_4px_0_#111]">
-                {Math.ceil(remainingMs / 1000)}s
-              </span>
-            </div>
-            <h1 className="text-4xl font-black leading-tight sm:text-6xl">
-              {currentQuestion.prompt}
-            </h1>
-            <p className="mt-4 text-xl font-black">
-              {answeredCount}/{players.length} locked in
-            </p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {currentQuestion.choices.map((choice, index) => {
-                const isReveal = game?.status === "reveal" || game?.status === "scoreboard";
-                const isCorrect = index === currentQuestion.answer_index;
-
-                return (
-                  <div
-                    className={`border-4 border-ink p-4 text-2xl font-black shadow-[5px_5px_0_#111] ${
-                      isReveal && isCorrect ? "bg-party-green" : "bg-paper"
-                    }`}
-                    key={choice}
-                  >
-                    {String.fromCharCode(65 + index)}. {choice}
-                  </div>
-                );
-              })}
-            </div>
-            {game?.status === "reveal" || game?.status === "scoreboard" ? (
-              <p className="mt-5 border-4 border-ink bg-party-yellow p-4 text-2xl font-black shadow-[5px_5px_0_#111]">
-                {currentQuestion.fun_fact}
-              </p>
-            ) : null}
-          </Card>
+          {game?.status === "scoreboard" || game?.status === "finished" ? (
+            <ScoreboardStage
+              currentQuestion={currentQuestion}
+              players={rankedPlayers}
+              status={game.status}
+            />
+          ) : (
+            <QuestionStage
+              answeredCount={answeredCount}
+              currentQuestion={currentQuestion}
+              playerCount={players.length}
+              remainingMs={remainingMs}
+              status={game?.status ?? "loading"}
+            />
+          )}
 
           <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
             <Card className="bg-party-green p-5">
@@ -403,6 +383,143 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
         </div>
       </section>
     </main>
+  );
+}
+
+function QuestionStage({
+  answeredCount,
+  currentQuestion,
+  playerCount,
+  remainingMs,
+  status,
+}: {
+  answeredCount: number;
+  currentQuestion: (typeof questions)[number];
+  playerCount: number;
+  remainingMs: number;
+  status: GameStatus | "loading";
+}) {
+  return (
+    <Card className="bg-white p-5 sm:p-8">
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+        <Badge className="bg-party-blue">{status}</Badge>
+        <span className="border-4 border-ink bg-party-yellow px-4 py-2 text-2xl font-black shadow-[4px_4px_0_#111]">
+          {Math.ceil(remainingMs / 1000)}s
+        </span>
+      </div>
+      <h1 className="text-4xl font-black leading-tight sm:text-6xl">
+        {currentQuestion.prompt}
+      </h1>
+      <p className="mt-4 text-xl font-black">
+        {answeredCount}/{playerCount} locked in
+      </p>
+      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        {currentQuestion.choices.map((choice, index) => {
+          const isReveal = status === "reveal";
+          const isCorrect = index === currentQuestion.answer_index;
+
+          return (
+            <div
+              className={`border-4 border-ink p-4 text-2xl font-black shadow-[5px_5px_0_#111] ${
+                isReveal && isCorrect ? "bg-party-green" : "bg-paper"
+              }`}
+              key={choice}
+            >
+              {String.fromCharCode(65 + index)}. {choice}
+            </div>
+          );
+        })}
+      </div>
+      {status === "reveal" ? (
+        <p className="mt-5 border-4 border-ink bg-party-yellow p-4 text-2xl font-black shadow-[5px_5px_0_#111]">
+          {currentQuestion.fun_fact}
+        </p>
+      ) : null}
+    </Card>
+  );
+}
+
+function ScoreboardStage({
+  currentQuestion,
+  players,
+  status,
+}: {
+  currentQuestion: (typeof questions)[number];
+  players: Player[];
+  status: "scoreboard" | "finished";
+}) {
+  const topThree = players.slice(0, 3);
+  const rest = players.slice(3);
+
+  return (
+    <Card className="bg-white p-5 sm:p-8">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <Badge className="bg-party-blue">
+          {status === "finished" ? "final results" : "scoreboard"}
+        </Badge>
+        <span className="border-4 border-ink bg-party-yellow px-4 py-2 text-xl font-black shadow-[4px_4px_0_#111]">
+          Next up: question recap
+        </span>
+      </div>
+
+      <h1 className="text-5xl font-black leading-none sm:text-7xl">
+        {status === "finished" ? "Final Flock Standings" : "Current Leaderboard"}
+      </h1>
+
+      {players.length > 0 ? (
+        <>
+          <div className="mt-7 grid items-end gap-4 lg:grid-cols-3">
+            {topThree.map((player, index) => (
+              <div
+                className={`border-4 border-ink p-4 text-center shadow-[6px_6px_0_#111] ${
+                  index === 0
+                    ? "bg-party-yellow lg:min-h-64"
+                    : index === 1
+                      ? "bg-party-blue lg:min-h-56"
+                      : "bg-party-green lg:min-h-48"
+                }`}
+                key={player.id}
+              >
+                <div className="mx-auto w-fit">
+                  <AvatarTile avatarId={player.avatar} size="lg" />
+                </div>
+                <p className="mt-4 text-5xl font-black">#{index + 1}</p>
+                <p className="truncate text-3xl font-black">{player.name}</p>
+                <p className="text-2xl font-black">{player.score} pts</p>
+              </div>
+            ))}
+          </div>
+
+          {rest.length > 0 ? (
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {rest.map((player, index) => (
+                <div
+                  className="flex items-center justify-between gap-3 border-4 border-ink bg-paper p-3 text-xl font-black shadow-[4px_4px_0_#111]"
+                  key={player.id}
+                >
+                  <span className="truncate">
+                    #{index + 4} {player.name}
+                  </span>
+                  <span>{player.score} pts</span>
+                </div>
+              ))}
+            </div>
+          ) : null}
+        </>
+      ) : (
+        <p className="mt-7 border-4 border-ink bg-party-yellow p-5 text-3xl font-black shadow-[5px_5px_0_#111]">
+          No players yet.
+        </p>
+      )}
+
+      <div className="mt-7 border-4 border-ink bg-paper p-4 shadow-[5px_5px_0_#111]">
+        <p className="text-sm font-black uppercase">Last question</p>
+        <p className="mt-1 text-2xl font-black">{currentQuestion.prompt}</p>
+        <p className="mt-2 text-xl font-black">
+          Answer: {currentQuestion.choices[currentQuestion.answer_index]}
+        </p>
+      </div>
+    </Card>
   );
 }
 
