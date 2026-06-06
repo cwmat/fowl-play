@@ -372,8 +372,8 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
   }
 
   return (
-    <main className="min-h-screen px-5 py-5 sm:px-8 lg:px-10">
-      <section className="mx-auto grid max-w-7xl gap-5 xl:grid-cols-[380px_1fr]">
+    <main className="min-h-screen px-3 py-4 sm:px-4 lg:px-5">
+      <section className="mx-auto grid max-w-[1660px] gap-4 xl:grid-cols-[360px_minmax(0,1fr)] 2xl:grid-cols-[340px_minmax(0,1fr)]">
         <Card className="bg-paper p-5">
           <Badge className="mb-4 bg-party-yellow">Host lobby</Badge>
           {game ? (
@@ -409,7 +409,7 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
           {error ? <p className="mt-4 font-bold text-red-700">{error}</p> : null}
         </Card>
 
-        <div className="grid gap-5">
+        <div className="grid gap-4">
           {!game || game.status === "lobby" ? (
             <LobbyStage loading={!game} playerCount={players.length} />
           ) : game.status === "scoreboard" || game.status === "finished" ? (
@@ -428,7 +428,7 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
             />
           )}
 
-          <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_300px] xl:grid-cols-[minmax(0,1fr)_320px]">
             <Card className="bg-party-green p-5">
               <h2 className="mb-4 text-3xl font-black">Flock roster</h2>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
