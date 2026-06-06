@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Play, Plus, SkipForward, Trophy } from "lucide-react";
 import { AvatarTile } from "@/components/avatar-tile";
@@ -335,7 +336,7 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
               currentQuestion={currentQuestion}
               playerCount={players.length}
               remainingMs={remainingMs}
-              status={game?.status ?? "loading"}
+              statusLabel={statusLabel(game?.status)}
             />
           )}
 
@@ -391,46 +392,84 @@ function QuestionStage({
   currentQuestion,
   playerCount,
   remainingMs,
-  status,
+  statusLabel,
 }: {
   answeredCount: number;
   currentQuestion: (typeof questions)[number];
   playerCount: number;
   remainingMs: number;
-  status: GameStatus | "loading";
+  statusLabel: string;
 }) {
+  const isReveal = statusLabel === "Reveal";
+  const hasMedia = Boolean(currentQuestion.media.image || currentQuestion.media.audio);
+
   return (
     <Card className="bg-white p-5 sm:p-8">
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-        <Badge className="bg-party-blue">{status}</Badge>
+        <Badge className="bg-party-blue">{statusLabel}</Badge>
         <span className="border-4 border-ink bg-party-yellow px-4 py-2 text-2xl font-black shadow-[4px_4px_0_#111]">
           {Math.ceil(remainingMs / 1000)}s
         </span>
       </div>
-      <h1 className="text-4xl font-black leading-tight sm:text-6xl">
-        {currentQuestion.prompt}
-      </h1>
-      <p className="mt-4 text-xl font-black">
-        {answeredCount}/{playerCount} locked in
-      </p>
-      <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        {currentQuestion.choices.map((choice, index) => {
-          const isReveal = status === "reveal";
-          const isCorrect = index === currentQuestion.answer_index;
+      <div
+        className={
+          hasMedia
+            ? "grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_420px]"
+            : "grid gap-6"
+        }
+      >
+        <div>
+          <h1 className="text-4xl font-black leading-tight sm:text-6xl">
+            {currentQuestion.prompt}
+          </h1>
+          <p className="mt-4 text-xl font-black">
+            {answeredCount}/{playerCount} locked in
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {currentQuestion.choices.map((choice, index) => {
+              const isCorrect = index === currentQuestion.answer_index;
 
-          return (
-            <div
-              className={`border-4 border-ink p-4 text-2xl font-black shadow-[5px_5px_0_#111] ${
-                isReveal && isCorrect ? "bg-party-green" : "bg-paper"
-              }`}
-              key={choice}
-            >
-              {String.fromCharCode(65 + index)}. {choice}
-            </div>
-          );
-        })}
+              return (
+                <div
+                  className={`border-4 border-ink p-4 text-2xl font-black shadow-[5px_5px_0_#111] ${
+                    isReveal && isCorrect ? "bg-party-green" : "bg-paper"
+                  }`}
+                  key={choice}
+                >
+                  {String.fromCharCode(65 + index)}. {choice}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {currentQuestion.media.image ? (
+          <div className="relative aspect-square overflow-hidden border-4 border-ink bg-paper shadow-[6px_6px_0_#111]">
+            <Image
+              alt={currentQuestion.choices[currentQuestion.answer_index]}
+              className="object-cover"
+              fill
+              priority
+              sizes="(min-width: 1280px) 420px, 90vw"
+              src={currentQuestion.media.image}
+            />
+          </div>
+        ) : null}
+
+        {currentQuestion.media.audio ? (
+          <div className="border-4 border-ink bg-party-blue p-5 shadow-[6px_6px_0_#111]">
+            <p className="text-3xl font-black">Play the call on the TV</p>
+            <audio
+              autoPlay={statusLabel === "Question Intro" || statusLabel === "Answering"}
+              className="mt-4 w-full"
+              controls
+              key={currentQuestion.id}
+              src={currentQuestion.media.audio}
+            />
+          </div>
+        ) : null}
       </div>
-      {status === "reveal" ? (
+      {isReveal ? (
         <p className="mt-5 border-4 border-ink bg-party-yellow p-4 text-2xl font-black shadow-[5px_5px_0_#111]">
           {currentQuestion.fun_fact}
         </p>
@@ -521,6 +560,25 @@ function ScoreboardStage({
       </div>
     </Card>
   );
+}
+
+function statusLabel(status?: GameStatus) {
+  switch (status) {
+    case "lobby":
+      return "Lobby";
+    case "question_intro":
+      return "Question Intro";
+    case "answering":
+      return "Answering";
+    case "reveal":
+      return "Reveal";
+    case "scoreboard":
+      return "Scoreboard";
+    case "finished":
+      return "Finished";
+    default:
+      return "Loading";
+  }
 }
 
 function advanceLabel(status?: GameStatus) {
