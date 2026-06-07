@@ -48,10 +48,32 @@ The source artifacts live in `docs/`. The recommended v1 is:
 - `public/avatars/` - generated square sticker avatars from `docs/avatars.txt`
 - `public/birds/` - cropped bird photos for Name That Bird
 - `public/calls/` - short host-played audio clips for Name That Call
+- `public/reader/` - generated host-only question reader clips and manifest
 - `public/music/` - host/home background loops
 - `public/sfx/` - randomized button click sounds
 
 Keep photo and audio credits in `CREDITS.md`; see `docs/ASSET_MAP.md` for the runtime asset map.
+
+## Local Question Reader Utility
+
+The host can optionally play pre-generated reader audio during `question_intro` and `reveal`. The toggle is on by default in the host rail, but playback only happens for clips listed in `public/reader/manifest.json`.
+
+Add `ELEVENLABS_API_KEY` to `.env.local` or pass it inline, then generate clips locally with ElevenLabs:
+
+```bash
+ELEVENLABS_API_KEY=... npm run audio:reader -- --dry-run --indexes 14 --phase all
+ELEVENLABS_API_KEY=... npm run audio:reader -- --indexes 14 --phase intro --force
+ELEVENLABS_API_KEY=... npm run audio:reader -- --ids q014,q017 --phase reveal
+ELEVENLABS_API_KEY=... npm run audio:reader -- --force
+```
+
+Defaults:
+
+- Voice ID: `rHWSYoq8UlV0YIBKMryp`
+- Model: `eleven_multilingual_v2`
+- Output: `mp3_44100_128`
+
+The utility text-concats short randomized starter phrases with the question manifest. It writes MP3s into `public/reader/` and updates `public/reader/manifest.json`. The generator itself lives in `scripts/` and is excluded from Vercel upload by `.vercelignore`; the generated clips are normal static assets and should be committed when you want them deployed.
 
 ## Scripts
 
@@ -61,4 +83,5 @@ npm run build
 npm run start
 npm run lint
 npm run test
+npm run audio:reader
 ```

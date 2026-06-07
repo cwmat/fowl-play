@@ -198,6 +198,7 @@ Current bank ships **24 questions** in `public/questions.json`: 10 multiple choi
 - **Avatars**: 8 AI images in `/public/avatars/{name}.png`. Square, ~512px, transparent or simple background.
 - **Bird photos**: download from Wikimedia Commons / iNaturalist to `/public/birds/`. Do not hotlink. Keep `CREDITS.md` and `docs/ASSET_MAP.md`.
 - **Bird calls** (if using audio round): download CC clips from xeno-canto to `/public/calls/`, trim to ~5s, keep attribution. Play on the host TV only.
+- **Question reader clips**: generated locally with ElevenLabs via `npm run audio:reader`, written to `/public/reader/`, and mapped by `/public/reader/manifest.json`. The generator stays local-only in `scripts/` and is excluded from Vercel upload; generated clips deploy as static assets.
 - Optimize images so the static bundle stays light (Vercel free bandwidth is generous but no need to ship 5MB photos).
 
 ## 9. Environment Variables
