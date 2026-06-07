@@ -103,15 +103,15 @@
   "scripts": {
     "q014": {
       "intro": "Let's keep flying. Next question. Which living bird lays the largest eggs?",
-      "reveal": "Let's see how you did. The answer is A... Ostrich. Ostrich eggs are the largest eggs laid by any living bird, even though they are small compared with the adult bird's body size."
+      "reveal": "Let's see how you did. The answer is B... Ostrich. Ostrich eggs are the largest eggs laid by any living bird, even though they are small compared with the adult bird's body size."
     },
     "q001": {
       "intro": "Okay flock, here comes the next question. Which of these birds can fly backwards?",
-      "reveal": "And the correct answer is A... Hummingbird. Hummingbirds are the only birds that can truly fly backwards, thanks to wings that rotate in a near figure-eight."
+      "reveal": "And the correct answer is B... Hummingbird. Hummingbirds are the only birds that can truly fly backwards, thanks to wings that rotate in a near figure-eight."
     },
     "q002": {
       "intro": "Ready or not, next question. What do you call a group of crows?",
-      "reveal": "Here comes the reveal. The correct answer is A... A murder. A group of crows is called a murder. A group of ravens, meanwhile, is an unkindness."
+      "reveal": "Here comes the reveal. The correct answer is D... A murder. A group of crows is called a murder. A group of ravens, meanwhile, is an unkindness."
     },
     "q003": {
       "intro": "Let's keep flying. Next question. Which bird is the fastest animal on Earth when diving?",
@@ -119,19 +119,19 @@
     },
     "q004": {
       "intro": "Alright, on to the next one. That fierce screech an eagle makes in the movies is usually dubbed from which bird?",
-      "reveal": "Phew, that was a tough one, but here's the right answer. A... Red-tailed Hawk. Bald eagles actually make weak, chirpy sounds, so filmmakers usually dub in the dramatic scream of a red-tailed hawk."
+      "reveal": "Phew, that was a tough one, but here's the right answer. C... Red-tailed Hawk. Bald eagles actually make weak, chirpy sounds, so filmmakers usually dub in the dramatic scream of a red-tailed hawk."
     },
     "q005": {
       "intro": "Okay flock, here comes the next question. About how far can an owl rotate its head?",
-      "reveal": "And the correct answer is A... 270 degrees. Owls can rotate their heads about 270 degrees. Their eyes are fixed in place, so turning the head is how they look around."
+      "reveal": "And the correct answer is B... 270 degrees. Owls can rotate their heads about 270 degrees. Their eyes are fixed in place, so turning the head is how they look around."
     },
     "q006": {
       "intro": "Ready or not, next question. Name that bird!",
-      "reveal": "Here comes the reveal. The correct answer is A... Atlantic Puffin. Puffins can hold a dozen or more small fish crosswise in their beak at once."
+      "reveal": "Here comes the reveal. The correct answer is D... Atlantic Puffin. Puffins can hold a dozen or more small fish crosswise in their beak at once."
     },
     "q007": {
       "intro": "Let's keep flying. Next question. Name that bird!",
-      "reveal": "Let's see how you did. The answer is A... Flamingo. Flamingos get their pink color from the shrimp and algae they eat. A group of them is a flamboyance."
+      "reveal": "Let's see how you did. The answer is C... Flamingo. Flamingos get their pink color from the shrimp and algae they eat. A group of them is a flamboyance."
     },
     "q008": {
       "intro": "Alright, on to the next one. Name that bird!",
@@ -139,15 +139,15 @@
     },
     "q009": {
       "intro": "Okay flock, here comes the next question. Name that bird!",
-      "reveal": "And the correct answer is A... Toucan. A toucan's giant beak is mostly hollow and helps it regulate body temperature, not just grab fruit."
+      "reveal": "And the correct answer is D... Toucan. A toucan's giant beak is mostly hollow and helps it regulate body temperature, not just grab fruit."
     },
     "q010": {
       "intro": "Let's keep flying. Next question. Name that call!",
-      "reveal": "Let's see how you did. The answer is A... Common Loon. The loon's haunting wail is the classic sound of northern lakes at night."
+      "reveal": "Let's see how you did. The answer is B... Common Loon. The loon's haunting wail is the classic sound of northern lakes at night."
     },
     "q011": {
       "intro": "Alright, on to the next one. Name that call!",
-      "reveal": "Phew, that was a tough one, but here's the right answer. A... Barred Owl. Birders memorize the barred owl by its phrase: 'Who cooks for you? Who cooks for you all?'"
+      "reveal": "Phew, that was a tough one, but here's the right answer. C... Barred Owl. Birders memorize the barred owl by its phrase: 'Who cooks for you? Who cooks for you all?'"
     },
     "q012": {
       "intro": "Okay flock, here comes the next question. Name that call!",
@@ -155,11 +155,11 @@
     },
     "q013": {
       "intro": "Ready or not, next question. Which bird makes the longest regular migration on Earth?",
-      "reveal": "Here comes the reveal. The correct answer is A... Arctic Tern. Arctic terns chase summer from pole to pole, traveling from Arctic breeding grounds toward Antarctic waters and back again."
+      "reveal": "Here comes the reveal. The correct answer is C... Arctic Tern. Arctic terns chase summer from pole to pole, traveling from Arctic breeding grounds toward Antarctic waters and back again."
     },
     "q015": {
       "intro": "Alright, on to the next one. Which bird is famous for mimicking camera shutters, chainsaws, and other wild sounds?",
-      "reveal": "Phew, that was a tough one, but here's the right answer. A... Superb Lyrebird. Male superb lyrebirds are elite mimics, copying other birds and sometimes human-made sounds as part of their display."
+      "reveal": "Phew, that was a tough one, but here's the right answer. D... Superb Lyrebird. Male superb lyrebirds are elite mimics, copying other birds and sometimes human-made sounds as part of their display."
     },
     "q016": {
       "intro": "Okay flock, here comes the next question. Which bird is known for shaping tools to fish food out of tight spaces?",
@@ -167,15 +167,15 @@
     },
     "q017": {
       "intro": "Ready or not, next question. Which bird feeds its chicks a milk-like food made in its crop?",
-      "reveal": "Here comes the reveal. The correct answer is A... Pigeon. Pigeons and doves produce crop milk, a rich food from the lining of the crop that both parents can feed to chicks."
+      "reveal": "Here comes the reveal. The correct answer is D... Pigeon. Pigeons and doves produce crop milk, a rich food from the lining of the crop that both parents can feed to chicks."
     },
     "q018": {
       "intro": "Let's keep flying. Next question. Name that bird!",
-      "reveal": "Let's see how you did. The answer is A... Northern Cardinal. Male northern cardinals are bright red, but the species' females sing too, often while sitting on the nest."
+      "reveal": "Let's see how you did. The answer is C... Northern Cardinal. Male northern cardinals are bright red, but the species' females sing too, often while sitting on the nest."
     },
     "q019": {
       "intro": "Alright, on to the next one. Name that bird!",
-      "reveal": "Phew, that was a tough one, but here's the right answer. A... Blue Jay. Blue jays are corvids, the clever bird family that also includes crows, ravens, and magpies."
+      "reveal": "Phew, that was a tough one, but here's the right answer. B... Blue Jay. Blue jays are corvids, the clever bird family that also includes crows, ravens, and magpies."
     },
     "q020": {
       "intro": "Ready or not, next question. Name that bird!",
@@ -183,11 +183,11 @@
     },
     "q021": {
       "intro": "Let's keep flying. Next question. Name that bird!",
-      "reveal": "Let's see how you did. The answer is A... Bald Eagle. Bald eagles are not bald; their name comes from an older meaning of bald, referring to the white head."
+      "reveal": "Let's see how you did. The answer is C... Bald Eagle. Bald eagles are not bald; their name comes from an older meaning of bald, referring to the white head."
     },
     "q022": {
       "intro": "Alright, on to the next one. Name that call!",
-      "reveal": "Phew, that was a tough one, but here's the right answer. A... American Robin. American robins have a famous dawn song, but they also use sharp alarm calls when something suspicious is nearby."
+      "reveal": "Phew, that was a tough one, but here's the right answer. D... American Robin. American robins have a famous dawn song, but they also use sharp alarm calls when something suspicious is nearby."
     },
     "q023": {
       "intro": "Okay flock, here comes the next question. Name that call!",
@@ -195,8 +195,8 @@
     },
     "q024": {
       "intro": "Ready or not, next question. Name that call!",
-      "reveal": "Here comes the reveal. The correct answer is A... American Herring Gull. Herring gulls are the classic noisy gulls of harbors, beaches, parking lots, and opportunistic snack theft."
+      "reveal": "Here comes the reveal. The correct answer is B... American Herring Gull. Herring gulls are the classic noisy gulls of harbors, beaches, parking lots, and opportunistic snack theft."
     }
   },
-  "generatedAt": "2026-06-07T10:07:38.817Z"
+  "generatedAt": "2026-06-07T10:31:02.613Z"
 }
