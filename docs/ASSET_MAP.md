@@ -39,6 +39,14 @@ This is the quick map of runtime assets used by FOWL PLAY. Keep source/legal det
 | `public/calls/red_winged_blackbird.mp3` | q023 | Red-winged Blackbird |
 | `public/calls/herring_gull.mp3` | q024 | American Herring Gull |
 
+## Question Reader
+
+| File | Used by |
+|------|---------|
+| `public/reader/manifest.json` | Maps generated host reader clips to question ids and phases |
+| `public/reader/{question-id}-intro.mp3` | Optional host question intro reader audio |
+| `public/reader/{question-id}-reveal.mp3` | Optional host reveal reader audio |
+
 ## Music and SFX
 
 | File | Used by |
