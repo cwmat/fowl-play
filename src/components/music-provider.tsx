@@ -3,6 +3,9 @@
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
+  MUSIC_DEFAULT_VOLUME,
+  MUSIC_DUCKED_VOLUME,
+  MUSIC_DUCK_EVENT,
   MUSIC_MODE_EVENT,
   MUSIC_TRACKS,
   MUSIC_UNLOCK_KEY,
@@ -10,8 +13,7 @@ import {
 } from "@/lib/music";
 
 type MusicModeEvent = CustomEvent<{ mode: MusicMode }>;
-
-const MUSIC_VOLUME = 0.3;
+type MusicDuckEvent = CustomEvent<{ ducked: boolean }>;
 
 export function MusicProvider() {
   const pathname = usePathname();
@@ -20,6 +22,8 @@ export function MusicProvider() {
   const [ready, setReady] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
   const [mode, setMode] = useState<MusicMode>("intro");
+  const [ducked, setDucked] = useState(false);
+  const musicVolume = ducked ? MUSIC_DUCKED_VOLUME : MUSIC_DEFAULT_VOLUME;
 
   const getTrack = useCallback(
     (trackMode: MusicMode) => (trackMode === "intro" ? introRef.current : mainRef.current),
@@ -38,6 +42,14 @@ export function MusicProvider() {
     [getTrack],
   );
 
+  const setTrackVolumes = useCallback((volume: number) => {
+    for (const track of [introRef.current, mainRef.current]) {
+      if (track) {
+        track.volume = volume;
+      }
+    }
+  }, []);
+
   const playTrack = useCallback(
     async (trackMode: MusicMode, fromGesture = false) => {
       const track = getTrack(trackMode);
@@ -48,7 +60,7 @@ export function MusicProvider() {
 
       pauseOtherTrack(trackMode);
       track.loop = true;
-      track.volume = MUSIC_VOLUME;
+      track.volume = musicVolume;
 
       try {
         await track.play();
@@ -59,7 +71,7 @@ export function MusicProvider() {
         }
       }
     },
-    [getTrack, pauseOtherTrack],
+    [getTrack, musicVolume, pauseOtherTrack],
   );
 
   useEffect(() => {
@@ -86,6 +98,16 @@ export function MusicProvider() {
   }, []);
 
   useEffect(() => {
+    function handleMusicDuck(event: Event) {
+      setDucked(Boolean((event as MusicDuckEvent).detail?.ducked));
+    }
+
+    window.addEventListener(MUSIC_DUCK_EVENT, handleMusicDuck);
+
+    return () => window.removeEventListener(MUSIC_DUCK_EVENT, handleMusicDuck);
+  }, []);
+
+  useEffect(() => {
     const timeout = window.setTimeout(() => {
       if (pathname === "/" || pathname === "/play" || pathname === "/host") {
         setMode("intro");
@@ -102,6 +124,10 @@ export function MusicProvider() {
 
     void playTrack(mode);
   }, [mode, playTrack, ready, unlocked]);
+
+  useEffect(() => {
+    setTrackVolumes(musicVolume);
+  }, [musicVolume, setTrackVolumes]);
 
   async function enterFlock() {
     window.localStorage.setItem(MUSIC_UNLOCK_KEY, "true");

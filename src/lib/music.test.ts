@@ -1,7 +1,12 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { MUSIC_TRACKS, musicModeForStatus } from "@/lib/music";
+import {
+  MUSIC_DEFAULT_VOLUME,
+  MUSIC_DUCKED_VOLUME,
+  MUSIC_TRACKS,
+  musicModeForStatus,
+} from "@/lib/music";
 
 const projectRoot = process.cwd();
 
@@ -21,6 +26,12 @@ describe("game music", () => {
     expect(musicModeForStatus("reveal")).toBe("main");
     expect(musicModeForStatus("scoreboard")).toBe("main");
     expect(musicModeForStatus("finished")).toBe("main");
+  });
+
+  it("ducks music without muting it during bird calls", () => {
+    expect(MUSIC_DEFAULT_VOLUME).toBe(0.3);
+    expect(MUSIC_DUCKED_VOLUME).toBeGreaterThan(0);
+    expect(MUSIC_DUCKED_VOLUME).toBeLessThan(0.02);
   });
 
   it("has every referenced music track in public assets", () => {

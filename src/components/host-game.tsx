@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ImageIcon, ListChecks, Play, Plus, SkipForward, Trophy, Volume2 } from "lucide-react";
 import { AvatarTile } from "@/components/avatar-tile";
 import { QRCodePanel } from "@/components/qr-code";
@@ -11,7 +11,7 @@ import { Card } from "@/components/ui/card";
 import { createRoomCode } from "@/lib/room-code";
 import { scoreAnswer } from "@/lib/scoring";
 import { createSupabaseBrowserClient } from "@/lib/supabase";
-import { MUSIC_MODE_EVENT, musicModeForStatus } from "@/lib/music";
+import { MUSIC_DUCK_EVENT, MUSIC_MODE_EVENT, musicModeForStatus } from "@/lib/music";
 import { questions } from "@/lib/questions";
 import type { Answer, Game, GameStatus, Player } from "@/types/game";
 
@@ -554,6 +554,9 @@ function QuestionStage({
 }) {
   const isReveal = statusLabel === "Reveal";
   const hasMedia = Boolean(currentQuestion.media.image || currentQuestion.media.audio);
+  const callIsActive =
+    Boolean(currentQuestion.media.audio) &&
+    (statusLabel === "Question Intro" || statusLabel === "Answering");
 
   return (
     <Card className="bg-white p-5 sm:p-8">
@@ -609,16 +612,11 @@ function QuestionStage({
         ) : null}
 
         {currentQuestion.media.audio ? (
-          <div className="border-4 border-ink bg-party-blue p-5 shadow-[6px_6px_0_#111]">
-            <p className="text-3xl font-black">Play the call on the TV</p>
-            <audio
-              autoPlay={statusLabel === "Question Intro" || statusLabel === "Answering"}
-              className="mt-4 w-full"
-              controls
-              key={currentQuestion.id}
-              src={currentQuestion.media.audio}
-            />
-          </div>
+          <CallAudioPlayer
+            active={callIsActive}
+            questionId={currentQuestion.id}
+            src={currentQuestion.media.audio}
+          />
         ) : null}
       </div>
       {isReveal ? (
@@ -627,6 +625,68 @@ function QuestionStage({
         </p>
       ) : null}
     </Card>
+  );
+}
+
+function CallAudioPlayer({
+  active,
+  questionId,
+  src,
+}: {
+  active: boolean;
+  questionId: string;
+  src: string;
+}) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    window.dispatchEvent(
+      new CustomEvent(MUSIC_DUCK_EVENT, {
+        detail: { ducked: active },
+      }),
+    );
+
+    if (active) {
+      if (audio) {
+        audio.loop = true;
+        void audio.play().catch(() => {
+          // The host still has visible controls if autoplay is blocked.
+        });
+      }
+    } else if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+
+    return () => {
+      window.dispatchEvent(
+        new CustomEvent(MUSIC_DUCK_EVENT, {
+          detail: { ducked: false },
+        }),
+      );
+
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    };
+  }, [active, src]);
+
+  return (
+    <div className="border-4 border-ink bg-party-blue p-5 shadow-[6px_6px_0_#111]">
+      <p className="text-3xl font-black">Play the call on the TV</p>
+      <audio
+        autoPlay={active}
+        className="mt-4 w-full"
+        controls
+        key={questionId}
+        loop={active}
+        ref={audioRef}
+        src={src}
+      />
+    </div>
   );
 }
 
