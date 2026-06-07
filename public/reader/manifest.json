@@ -1,0 +1,202 @@
+{
+  "voiceId": "rHWSYoq8UlV0YIBKMryp",
+  "modelId": "eleven_multilingual_v2",
+  "outputFormat": "mp3_44100_128",
+  "clips": {
+    "q014": {
+      "intro": "/reader/q014-intro.mp3",
+      "reveal": "/reader/q014-reveal.mp3"
+    },
+    "q001": {
+      "intro": "/reader/q001-intro.mp3",
+      "reveal": "/reader/q001-reveal.mp3"
+    },
+    "q002": {
+      "intro": "/reader/q002-intro.mp3",
+      "reveal": "/reader/q002-reveal.mp3"
+    },
+    "q003": {
+      "intro": "/reader/q003-intro.mp3",
+      "reveal": "/reader/q003-reveal.mp3"
+    },
+    "q004": {
+      "intro": "/reader/q004-intro.mp3",
+      "reveal": "/reader/q004-reveal.mp3"
+    },
+    "q005": {
+      "intro": "/reader/q005-intro.mp3",
+      "reveal": "/reader/q005-reveal.mp3"
+    },
+    "q006": {
+      "intro": "/reader/q006-intro.mp3",
+      "reveal": "/reader/q006-reveal.mp3"
+    },
+    "q007": {
+      "intro": "/reader/q007-intro.mp3",
+      "reveal": "/reader/q007-reveal.mp3"
+    },
+    "q008": {
+      "intro": "/reader/q008-intro.mp3",
+      "reveal": "/reader/q008-reveal.mp3"
+    },
+    "q009": {
+      "intro": "/reader/q009-intro.mp3",
+      "reveal": "/reader/q009-reveal.mp3"
+    },
+    "q010": {
+      "intro": "/reader/q010-intro.mp3",
+      "reveal": "/reader/q010-reveal.mp3"
+    },
+    "q011": {
+      "intro": "/reader/q011-intro.mp3",
+      "reveal": "/reader/q011-reveal.mp3"
+    },
+    "q012": {
+      "intro": "/reader/q012-intro.mp3",
+      "reveal": "/reader/q012-reveal.mp3"
+    },
+    "q013": {
+      "intro": "/reader/q013-intro.mp3",
+      "reveal": "/reader/q013-reveal.mp3"
+    },
+    "q015": {
+      "intro": "/reader/q015-intro.mp3",
+      "reveal": "/reader/q015-reveal.mp3"
+    },
+    "q016": {
+      "intro": "/reader/q016-intro.mp3",
+      "reveal": "/reader/q016-reveal.mp3"
+    },
+    "q017": {
+      "intro": "/reader/q017-intro.mp3",
+      "reveal": "/reader/q017-reveal.mp3"
+    },
+    "q018": {
+      "intro": "/reader/q018-intro.mp3",
+      "reveal": "/reader/q018-reveal.mp3"
+    },
+    "q019": {
+      "intro": "/reader/q019-intro.mp3",
+      "reveal": "/reader/q019-reveal.mp3"
+    },
+    "q020": {
+      "intro": "/reader/q020-intro.mp3",
+      "reveal": "/reader/q020-reveal.mp3"
+    },
+    "q021": {
+      "intro": "/reader/q021-intro.mp3",
+      "reveal": "/reader/q021-reveal.mp3"
+    },
+    "q022": {
+      "intro": "/reader/q022-intro.mp3",
+      "reveal": "/reader/q022-reveal.mp3"
+    },
+    "q023": {
+      "intro": "/reader/q023-intro.mp3",
+      "reveal": "/reader/q023-reveal.mp3"
+    },
+    "q024": {
+      "intro": "/reader/q024-intro.mp3",
+      "reveal": "/reader/q024-reveal.mp3"
+    }
+  },
+  "scripts": {
+    "q014": {
+      "intro": "Let's keep flying. Next question. Which living bird lays the largest eggs?",
+      "reveal": "Let's see how you did. The answer is A... Ostrich. Ostrich eggs are the largest eggs laid by any living bird, even though they are small compared with the adult bird's body size."
+    },
+    "q001": {
+      "intro": "Okay flock, here comes the next question. Which of these birds can fly backwards?",
+      "reveal": "And the correct answer is A... Hummingbird. Hummingbirds are the only birds that can truly fly backwards, thanks to wings that rotate in a near figure-eight."
+    },
+    "q002": {
+      "intro": "Ready or not, next question. What do you call a group of crows?",
+      "reveal": "Here comes the reveal. The correct answer is A... A murder. A group of crows is called a murder. A group of ravens, meanwhile, is an unkindness."
+    },
+    "q003": {
+      "intro": "Let's keep flying. Next question. Which bird is the fastest animal on Earth when diving?",
+      "reveal": "Let's see how you did. The answer is A... Peregrine Falcon. A peregrine falcon in a hunting dive can exceed 200 miles per hour, making it the fastest animal alive."
+    },
+    "q004": {
+      "intro": "Alright, on to the next one. That fierce screech an eagle makes in the movies is usually dubbed from which bird?",
+      "reveal": "Phew, that was a tough one, but here's the right answer. A... Red-tailed Hawk. Bald eagles actually make weak, chirpy sounds, so filmmakers usually dub in the dramatic scream of a red-tailed hawk."
+    },
+    "q005": {
+      "intro": "Okay flock, here comes the next question. About how far can an owl rotate its head?",
+      "reveal": "And the correct answer is A... 270 degrees. Owls can rotate their heads about 270 degrees. Their eyes are fixed in place, so turning the head is how they look around."
+    },
+    "q006": {
+      "intro": "Ready or not, next question. Name that bird!",
+      "reveal": "Here comes the reveal. The correct answer is A... Atlantic Puffin. Puffins can hold a dozen or more small fish crosswise in their beak at once."
+    },
+    "q007": {
+      "intro": "Let's keep flying. Next question. Name that bird!",
+      "reveal": "Let's see how you did. The answer is A... Flamingo. Flamingos get their pink color from the shrimp and algae they eat. A group of them is a flamboyance."
+    },
+    "q008": {
+      "intro": "Alright, on to the next one. Name that bird!",
+      "reveal": "Phew, that was a tough one, but here's the right answer. A... Peacock. Only the males are technically peacocks. Females are peahens, and the species together are peafowl."
+    },
+    "q009": {
+      "intro": "Okay flock, here comes the next question. Name that bird!",
+      "reveal": "And the correct answer is A... Toucan. A toucan's giant beak is mostly hollow and helps it regulate body temperature, not just grab fruit."
+    },
+    "q010": {
+      "intro": "Let's keep flying. Next question. Name that call!",
+      "reveal": "Let's see how you did. The answer is A... Common Loon. The loon's haunting wail is the classic sound of northern lakes at night."
+    },
+    "q011": {
+      "intro": "Alright, on to the next one. Name that call!",
+      "reveal": "Phew, that was a tough one, but here's the right answer. A... Barred Owl. Birders memorize the barred owl by its phrase: 'Who cooks for you? Who cooks for you all?'"
+    },
+    "q012": {
+      "intro": "Okay flock, here comes the next question. Name that call!",
+      "reveal": "And the correct answer is A... Mourning Dove. The mourning dove's soft, sad coo is so iconic that people often mistake it for an owl."
+    },
+    "q013": {
+      "intro": "Ready or not, next question. Which bird makes the longest regular migration on Earth?",
+      "reveal": "Here comes the reveal. The correct answer is A... Arctic Tern. Arctic terns chase summer from pole to pole, traveling from Arctic breeding grounds toward Antarctic waters and back again."
+    },
+    "q015": {
+      "intro": "Alright, on to the next one. Which bird is famous for mimicking camera shutters, chainsaws, and other wild sounds?",
+      "reveal": "Phew, that was a tough one, but here's the right answer. A... Superb Lyrebird. Male superb lyrebirds are elite mimics, copying other birds and sometimes human-made sounds as part of their display."
+    },
+    "q016": {
+      "intro": "Okay flock, here comes the next question. Which bird is known for shaping tools to fish food out of tight spaces?",
+      "reveal": "And the correct answer is A... New Caledonian Crow. New Caledonian crows can make hooked tools from twigs and leaves, one of the flashiest tool-use skills in the bird world."
+    },
+    "q017": {
+      "intro": "Ready or not, next question. Which bird feeds its chicks a milk-like food made in its crop?",
+      "reveal": "Here comes the reveal. The correct answer is A... Pigeon. Pigeons and doves produce crop milk, a rich food from the lining of the crop that both parents can feed to chicks."
+    },
+    "q018": {
+      "intro": "Let's keep flying. Next question. Name that bird!",
+      "reveal": "Let's see how you did. The answer is A... Northern Cardinal. Male northern cardinals are bright red, but the species' females sing too, often while sitting on the nest."
+    },
+    "q019": {
+      "intro": "Alright, on to the next one. Name that bird!",
+      "reveal": "Phew, that was a tough one, but here's the right answer. A... Blue Jay. Blue jays are corvids, the clever bird family that also includes crows, ravens, and magpies."
+    },
+    "q020": {
+      "intro": "Ready or not, next question. Name that bird!",
+      "reveal": "Here comes the reveal. The correct answer is A... Mallard. Mallards are dabbling ducks: they tip forward with tails up to feed in shallow water instead of diving deep."
+    },
+    "q021": {
+      "intro": "Let's keep flying. Next question. Name that bird!",
+      "reveal": "Let's see how you did. The answer is A... Bald Eagle. Bald eagles are not bald; their name comes from an older meaning of bald, referring to the white head."
+    },
+    "q022": {
+      "intro": "Alright, on to the next one. Name that call!",
+      "reveal": "Phew, that was a tough one, but here's the right answer. A... American Robin. American robins have a famous dawn song, but they also use sharp alarm calls when something suspicious is nearby."
+    },
+    "q023": {
+      "intro": "Okay flock, here comes the next question. Name that call!",
+      "reveal": "And the correct answer is A... Red-winged Blackbird. Male red-winged blackbirds flash their red shoulder patches while defending marshy territories."
+    },
+    "q024": {
+      "intro": "Ready or not, next question. Name that call!",
+      "reveal": "Here comes the reveal. The correct answer is A... American Herring Gull. Herring gulls are the classic noisy gulls of harbors, beaches, parking lots, and opportunistic snack theft."
+    }
+  },
+  "generatedAt": "2026-06-07T10:07:38.817Z"
+}
