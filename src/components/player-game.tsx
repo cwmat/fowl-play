@@ -1,12 +1,13 @@
 "use client";
 
-import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
+import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Check, RotateCcw } from "lucide-react";
 import { AvatarTile } from "@/components/avatar-tile";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { avatars, type AvatarId } from "@/data/avatars";
+import { questionStartHapticKey, triggerHaptic } from "@/lib/haptics";
 import { MUSIC_MODE_EVENT, musicModeForStatus } from "@/lib/music";
 import { createSupabaseBrowserClient } from "@/lib/supabase";
 import { questions } from "@/lib/questions";
@@ -21,6 +22,7 @@ export function PlayerGame({ roomCode }: { roomCode: string }) {
   const [avatar, setAvatar] = useState<AvatarId>("owl");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const lastQuestionHapticKey = useRef<string | null>(null);
 
   const question = questions[game?.current_q_index ?? 0] ?? questions[0];
   const playerKey = `fowl-play-player-${roomCode}`;
@@ -147,6 +149,25 @@ export function PlayerGame({ roomCode }: { roomCode: string }) {
       }),
     );
   }, [game?.status]);
+
+  useEffect(() => {
+    if (!player || !game) {
+      return;
+    }
+
+    const hapticKey = questionStartHapticKey({
+      gameId: game.id,
+      qIndex: game.current_q_index,
+      status: game.status,
+    });
+
+    if (!hapticKey || lastQuestionHapticKey.current === hapticKey) {
+      return;
+    }
+
+    lastQuestionHapticKey.current = hapticKey;
+    triggerHaptic();
+  }, [game, player]);
 
   async function joinGame(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
