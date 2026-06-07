@@ -21,6 +21,18 @@ describe("question bank", () => {
     }
   });
 
+  it("spreads correct answers across every answer slot", () => {
+    const answerSlotCounts = questions.reduce(
+      (counts, question) => {
+        counts[question.answer_index] += 1;
+        return counts;
+      },
+      [0, 0, 0, 0],
+    );
+
+    expect(answerSlotCounts).toEqual([6, 6, 6, 6]);
+  });
+
   it("has local files for every referenced media asset", () => {
     const mediaPaths = questions.flatMap((question) =>
       [question.media.image, question.media.audio].filter(Boolean),

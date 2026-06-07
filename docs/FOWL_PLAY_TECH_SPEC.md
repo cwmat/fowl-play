@@ -193,6 +193,8 @@ Sample seed questions to start the bank:
 
 Current bank ships **24 questions** in `public/questions.json`: 10 multiple choice, 8 Name That Bird photo rounds, and 6 Name That Call audio rounds. Heavily weight difficulty 1 and 2 for a chill party. A future runtime shuffle/subset pass can draw 8-12 questions from this larger bank when a shorter game is preferred.
 
+Correct answers are intentionally distributed evenly across A, B, C, and D so players cannot solve the game by always picking one slot. If the bank changes, keep the answer-slot regression test updated with the intended distribution.
+
 ## 8. Asset Handling
 
 - **Avatars**: 8 AI images in `/public/avatars/{name}.png`. Square, ~512px, transparent or simple background.

@@ -3,9 +3,17 @@
     "id": "q001",
     "type": "multiple_choice",
     "prompt": "Which of these birds can fly backwards?",
-    "media": { "image": null, "audio": null },
-    "choices": ["Hummingbird", "Bald Eagle", "Emperor Penguin", "Ostrich"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "choices": [
+      "Bald Eagle",
+      "Hummingbird",
+      "Emperor Penguin",
+      "Ostrich"
+    ],
+    "answer_index": 1,
     "fun_fact": "Hummingbirds are the only birds that can truly fly backwards, thanks to wings that rotate in a near figure-eight.",
     "difficulty": 1
   },
@@ -13,9 +21,17 @@
     "id": "q002",
     "type": "multiple_choice",
     "prompt": "What do you call a group of crows?",
-    "media": { "image": null, "audio": null },
-    "choices": ["A murder", "A giggle", "A parade", "A bouquet"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "choices": [
+      "A giggle",
+      "A parade",
+      "A bouquet",
+      "A murder"
+    ],
+    "answer_index": 3,
     "fun_fact": "A group of crows is called a murder. A group of ravens, meanwhile, is an unkindness.",
     "difficulty": 1
   },
@@ -23,8 +39,16 @@
     "id": "q003",
     "type": "multiple_choice",
     "prompt": "Which bird is the fastest animal on Earth when diving?",
-    "media": { "image": null, "audio": null },
-    "choices": ["Peregrine Falcon", "Mallard Duck", "Albatross", "Ostrich"],
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "choices": [
+      "Peregrine Falcon",
+      "Mallard Duck",
+      "Albatross",
+      "Ostrich"
+    ],
     "answer_index": 0,
     "fun_fact": "A peregrine falcon in a hunting dive can exceed 200 miles per hour, making it the fastest animal alive.",
     "difficulty": 2
@@ -33,9 +57,17 @@
     "id": "q004",
     "type": "multiple_choice",
     "prompt": "That fierce screech an eagle makes in the movies is usually dubbed from which bird?",
-    "media": { "image": null, "audio": null },
-    "choices": ["Red-tailed Hawk", "Seagull", "Turkey", "Crow"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "choices": [
+      "Seagull",
+      "Turkey",
+      "Red-tailed Hawk",
+      "Crow"
+    ],
+    "answer_index": 2,
     "fun_fact": "Bald eagles actually make weak, chirpy sounds, so filmmakers usually dub in the dramatic scream of a red-tailed hawk.",
     "difficulty": 2
   },
@@ -43,9 +75,17 @@
     "id": "q005",
     "type": "multiple_choice",
     "prompt": "About how far can an owl rotate its head?",
-    "media": { "image": null, "audio": null },
-    "choices": ["270 degrees", "90 degrees", "360 degrees", "45 degrees"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "choices": [
+      "90 degrees",
+      "270 degrees",
+      "360 degrees",
+      "45 degrees"
+    ],
+    "answer_index": 1,
     "fun_fact": "Owls can rotate their heads about 270 degrees. Their eyes are fixed in place, so turning the head is how they look around.",
     "difficulty": 2
   },
@@ -53,9 +93,17 @@
     "id": "q006",
     "type": "name_that_bird",
     "prompt": "Name that bird!",
-    "media": { "image": "/birds/puffin.jpg", "audio": null },
-    "choices": ["Atlantic Puffin", "Toucan", "Penguin", "Macaw"],
-    "answer_index": 0,
+    "media": {
+      "image": "/birds/puffin.jpg",
+      "audio": null
+    },
+    "choices": [
+      "Toucan",
+      "Penguin",
+      "Macaw",
+      "Atlantic Puffin"
+    ],
+    "answer_index": 3,
     "fun_fact": "Puffins can hold a dozen or more small fish crosswise in their beak at once.",
     "difficulty": 1
   },
@@ -63,9 +111,17 @@
     "id": "q007",
     "type": "name_that_bird",
     "prompt": "Name that bird!",
-    "media": { "image": "/birds/flamingo.jpg", "audio": null },
-    "choices": ["Flamingo", "Stork", "Crane", "Ibis"],
-    "answer_index": 0,
+    "media": {
+      "image": "/birds/flamingo.jpg",
+      "audio": null
+    },
+    "choices": [
+      "Stork",
+      "Crane",
+      "Flamingo",
+      "Ibis"
+    ],
+    "answer_index": 2,
     "fun_fact": "Flamingos get their pink color from the shrimp and algae they eat. A group of them is a flamboyance.",
     "difficulty": 1
   },
@@ -73,8 +129,16 @@
     "id": "q008",
     "type": "name_that_bird",
     "prompt": "Name that bird!",
-    "media": { "image": "/birds/peacock.jpg", "audio": null },
-    "choices": ["Peacock", "Pheasant", "Turkey", "Parrot"],
+    "media": {
+      "image": "/birds/peacock.jpg",
+      "audio": null
+    },
+    "choices": [
+      "Peacock",
+      "Pheasant",
+      "Turkey",
+      "Parrot"
+    ],
     "answer_index": 0,
     "fun_fact": "Only the males are technically peacocks. Females are peahens, and the species together are peafowl.",
     "difficulty": 1
@@ -83,9 +147,17 @@
     "id": "q009",
     "type": "name_that_bird",
     "prompt": "Name that bird!",
-    "media": { "image": "/birds/toucan.jpg", "audio": null },
-    "choices": ["Toucan", "Hornbill", "Parrot", "Kingfisher"],
-    "answer_index": 0,
+    "media": {
+      "image": "/birds/toucan.jpg",
+      "audio": null
+    },
+    "choices": [
+      "Hornbill",
+      "Parrot",
+      "Kingfisher",
+      "Toucan"
+    ],
+    "answer_index": 3,
     "fun_fact": "A toucan's giant beak is mostly hollow and helps it regulate body temperature, not just grab fruit.",
     "difficulty": 1
   },
@@ -93,9 +165,17 @@
     "id": "q010",
     "type": "name_that_call",
     "prompt": "Name that call!",
-    "media": { "image": null, "audio": "/calls/loon.mp3" },
-    "choices": ["Common Loon", "Seagull", "Duck", "Owl"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": "/calls/loon.mp3"
+    },
+    "choices": [
+      "Seagull",
+      "Common Loon",
+      "Duck",
+      "Owl"
+    ],
+    "answer_index": 1,
     "fun_fact": "The loon's haunting wail is the classic sound of northern lakes at night.",
     "difficulty": 2
   },
@@ -103,9 +183,17 @@
     "id": "q011",
     "type": "name_that_call",
     "prompt": "Name that call!",
-    "media": { "image": null, "audio": "/calls/barred_owl.mp3" },
-    "choices": ["Barred Owl", "Hawk", "Crow", "Mourning Dove"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": "/calls/barred_owl.mp3"
+    },
+    "choices": [
+      "Hawk",
+      "Crow",
+      "Barred Owl",
+      "Mourning Dove"
+    ],
+    "answer_index": 2,
     "fun_fact": "Birders memorize the barred owl by its phrase: 'Who cooks for you? Who cooks for you all?'",
     "difficulty": 2
   },
@@ -113,8 +201,16 @@
     "id": "q012",
     "type": "name_that_call",
     "prompt": "Name that call!",
-    "media": { "image": null, "audio": "/calls/mourning_dove.mp3" },
-    "choices": ["Mourning Dove", "Owl", "Pigeon", "Cuckoo"],
+    "media": {
+      "image": null,
+      "audio": "/calls/mourning_dove.mp3"
+    },
+    "choices": [
+      "Mourning Dove",
+      "Owl",
+      "Pigeon",
+      "Cuckoo"
+    ],
     "answer_index": 0,
     "fun_fact": "The mourning dove's soft, sad coo is so iconic that people often mistake it for an owl.",
     "difficulty": 2
@@ -123,9 +219,17 @@
     "id": "q013",
     "type": "multiple_choice",
     "prompt": "Which bird makes the longest regular migration on Earth?",
-    "media": { "image": null, "audio": null },
-    "choices": ["Arctic Tern", "Wild Turkey", "Peacock", "House Sparrow"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "choices": [
+      "Wild Turkey",
+      "Peacock",
+      "Arctic Tern",
+      "House Sparrow"
+    ],
+    "answer_index": 2,
     "fun_fact": "Arctic terns chase summer from pole to pole, traveling from Arctic breeding grounds toward Antarctic waters and back again.",
     "difficulty": 2
   },
@@ -133,9 +237,17 @@
     "id": "q014",
     "type": "multiple_choice",
     "prompt": "Which living bird lays the largest eggs?",
-    "media": { "image": null, "audio": null },
-    "choices": ["Ostrich", "Bald Eagle", "Emperor Penguin", "Flamingo"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "choices": [
+      "Bald Eagle",
+      "Ostrich",
+      "Emperor Penguin",
+      "Flamingo"
+    ],
+    "answer_index": 1,
     "fun_fact": "Ostrich eggs are the largest eggs laid by any living bird, even though they are small compared with the adult bird's body size.",
     "difficulty": 1
   },
@@ -143,9 +255,17 @@
     "id": "q015",
     "type": "multiple_choice",
     "prompt": "Which bird is famous for mimicking camera shutters, chainsaws, and other wild sounds?",
-    "media": { "image": null, "audio": null },
-    "choices": ["Superb Lyrebird", "Canada Goose", "Atlantic Puffin", "Mallard"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "choices": [
+      "Canada Goose",
+      "Atlantic Puffin",
+      "Mallard",
+      "Superb Lyrebird"
+    ],
+    "answer_index": 3,
     "fun_fact": "Male superb lyrebirds are elite mimics, copying other birds and sometimes human-made sounds as part of their display.",
     "difficulty": 2
   },
@@ -153,8 +273,16 @@
     "id": "q016",
     "type": "multiple_choice",
     "prompt": "Which bird is known for shaping tools to fish food out of tight spaces?",
-    "media": { "image": null, "audio": null },
-    "choices": ["New Caledonian Crow", "Rock Pigeon", "Snowy Owl", "Brown Pelican"],
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "choices": [
+      "New Caledonian Crow",
+      "Rock Pigeon",
+      "Snowy Owl",
+      "Brown Pelican"
+    ],
     "answer_index": 0,
     "fun_fact": "New Caledonian crows can make hooked tools from twigs and leaves, one of the flashiest tool-use skills in the bird world.",
     "difficulty": 3
@@ -163,9 +291,17 @@
     "id": "q017",
     "type": "multiple_choice",
     "prompt": "Which bird feeds its chicks a milk-like food made in its crop?",
-    "media": { "image": null, "audio": null },
-    "choices": ["Pigeon", "Hummingbird", "Woodpecker", "Toucan"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": null
+    },
+    "choices": [
+      "Hummingbird",
+      "Woodpecker",
+      "Toucan",
+      "Pigeon"
+    ],
+    "answer_index": 3,
     "fun_fact": "Pigeons and doves produce crop milk, a rich food from the lining of the crop that both parents can feed to chicks.",
     "difficulty": 2
   },
@@ -173,9 +309,17 @@
     "id": "q018",
     "type": "name_that_bird",
     "prompt": "Name that bird!",
-    "media": { "image": "/birds/cardinal.jpg", "audio": null },
-    "choices": ["Northern Cardinal", "House Finch", "Scarlet Tanager", "Pyrrhuloxia"],
-    "answer_index": 0,
+    "media": {
+      "image": "/birds/cardinal.jpg",
+      "audio": null
+    },
+    "choices": [
+      "House Finch",
+      "Scarlet Tanager",
+      "Northern Cardinal",
+      "Pyrrhuloxia"
+    ],
+    "answer_index": 2,
     "fun_fact": "Male northern cardinals are bright red, but the species' females sing too, often while sitting on the nest.",
     "difficulty": 1
   },
@@ -183,9 +327,17 @@
     "id": "q019",
     "type": "name_that_bird",
     "prompt": "Name that bird!",
-    "media": { "image": "/birds/blue_jay.jpg", "audio": null },
-    "choices": ["Blue Jay", "Steller's Jay", "Canada Jay", "Belted Kingfisher"],
-    "answer_index": 0,
+    "media": {
+      "image": "/birds/blue_jay.jpg",
+      "audio": null
+    },
+    "choices": [
+      "Steller's Jay",
+      "Blue Jay",
+      "Canada Jay",
+      "Belted Kingfisher"
+    ],
+    "answer_index": 1,
     "fun_fact": "Blue jays are corvids, the clever bird family that also includes crows, ravens, and magpies.",
     "difficulty": 1
   },
@@ -193,8 +345,16 @@
     "id": "q020",
     "type": "name_that_bird",
     "prompt": "Name that bird!",
-    "media": { "image": "/birds/mallard.jpg", "audio": null },
-    "choices": ["Mallard", "Wood Duck", "Canada Goose", "Northern Pintail"],
+    "media": {
+      "image": "/birds/mallard.jpg",
+      "audio": null
+    },
+    "choices": [
+      "Mallard",
+      "Wood Duck",
+      "Canada Goose",
+      "Northern Pintail"
+    ],
     "answer_index": 0,
     "fun_fact": "Mallards are dabbling ducks: they tip forward with tails up to feed in shallow water instead of diving deep.",
     "difficulty": 1
@@ -203,9 +363,17 @@
     "id": "q021",
     "type": "name_that_bird",
     "prompt": "Name that bird!",
-    "media": { "image": "/birds/bald_eagle.jpg", "audio": null },
-    "choices": ["Bald Eagle", "Osprey", "Golden Eagle", "Red-tailed Hawk"],
-    "answer_index": 0,
+    "media": {
+      "image": "/birds/bald_eagle.jpg",
+      "audio": null
+    },
+    "choices": [
+      "Osprey",
+      "Golden Eagle",
+      "Bald Eagle",
+      "Red-tailed Hawk"
+    ],
+    "answer_index": 2,
     "fun_fact": "Bald eagles are not bald; their name comes from an older meaning of bald, referring to the white head.",
     "difficulty": 1
   },
@@ -213,9 +381,17 @@
     "id": "q022",
     "type": "name_that_call",
     "prompt": "Name that call!",
-    "media": { "image": null, "audio": "/calls/american_robin.mp3" },
-    "choices": ["American Robin", "Northern Cardinal", "House Sparrow", "Blue Jay"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": "/calls/american_robin.mp3"
+    },
+    "choices": [
+      "Northern Cardinal",
+      "House Sparrow",
+      "Blue Jay",
+      "American Robin"
+    ],
+    "answer_index": 3,
     "fun_fact": "American robins have a famous dawn song, but they also use sharp alarm calls when something suspicious is nearby.",
     "difficulty": 2
   },
@@ -223,8 +399,16 @@
     "id": "q023",
     "type": "name_that_call",
     "prompt": "Name that call!",
-    "media": { "image": null, "audio": "/calls/red_winged_blackbird.mp3" },
-    "choices": ["Red-winged Blackbird", "Common Grackle", "European Starling", "American Crow"],
+    "media": {
+      "image": null,
+      "audio": "/calls/red_winged_blackbird.mp3"
+    },
+    "choices": [
+      "Red-winged Blackbird",
+      "Common Grackle",
+      "European Starling",
+      "American Crow"
+    ],
     "answer_index": 0,
     "fun_fact": "Male red-winged blackbirds flash their red shoulder patches while defending marshy territories.",
     "difficulty": 2
@@ -233,9 +417,17 @@
     "id": "q024",
     "type": "name_that_call",
     "prompt": "Name that call!",
-    "media": { "image": null, "audio": "/calls/herring_gull.mp3" },
-    "choices": ["American Herring Gull", "Bald Eagle", "Common Loon", "Canada Goose"],
-    "answer_index": 0,
+    "media": {
+      "image": null,
+      "audio": "/calls/herring_gull.mp3"
+    },
+    "choices": [
+      "Bald Eagle",
+      "American Herring Gull",
+      "Common Loon",
+      "Canada Goose"
+    ],
+    "answer_index": 1,
     "fun_fact": "Herring gulls are the classic noisy gulls of harbors, beaches, parking lots, and opportunistic snack theft.",
     "difficulty": 2
   }
