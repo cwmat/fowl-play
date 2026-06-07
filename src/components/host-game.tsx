@@ -2,12 +2,28 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ImageIcon, ListChecks, Play, Plus, SkipForward, Trophy, Volume2 } from "lucide-react";
+import {
+  ImageIcon,
+  ListChecks,
+  Play,
+  Plus,
+  SkipForward,
+  Trophy,
+  Volume2,
+  VolumeX,
+} from "lucide-react";
 import { AvatarTile } from "@/components/avatar-tile";
 import { QRCodePanel } from "@/components/qr-code";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+  QUESTION_READER_TOGGLE_KEY,
+  getReaderIntroPlaybackKey,
+  getQuestionReaderAudioPath,
+  shouldDelayBirdCallForQuestionReader,
+  type QuestionReaderPhase,
+} from "@/lib/question-reader";
 import { createRoomCode } from "@/lib/room-code";
 import { scoreAnswer } from "@/lib/scoring";
 import { createSupabaseBrowserClient } from "@/lib/supabase";
@@ -50,6 +66,8 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
   const [now, setNow] = useState(() => Date.now());
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [readerEnabled, setReaderEnabled] = useState(true);
+  const [completedReaderIntroKey, setCompletedReaderIntroKey] = useState<string | null>(null);
 
   const currentQuestion = questions[game?.current_q_index ?? 0] ?? questions[0];
   const currentAnswers = answers.filter(
@@ -58,6 +76,21 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
   const answeredCount = new Set(currentAnswers.map((answer) => answer.player_id)).size;
   const rankedPlayers = [...players].sort((a, b) => b.score - a.score);
   const joinUrl = game ? `${siteUrl}/play/${game.room_code}` : `${siteUrl}/play`;
+  const readerIntroAudioPath = readerEnabled
+    ? getQuestionReaderAudioPath(currentQuestion.id, "intro")
+    : null;
+  const readerIntroPlaybackKey = getReaderIntroPlaybackKey({
+    gameId: game?.id,
+    qIndex: game?.current_q_index,
+    questionId: currentQuestion.id,
+    src: readerIntroAudioPath,
+  });
+  const delayCallAudioForReader = shouldDelayBirdCallForQuestionReader({
+    completedReaderIntroKey,
+    hasCallAudio: Boolean(currentQuestion.media.audio),
+    readerIntroPlaybackKey,
+    status: game?.status,
+  });
   const remainingMs =
     game?.status === "answering" && game.question_started_at
       ? Math.max(0, QUESTION_TIME_LIMIT_MS - (now - Date.parse(game.question_started_at)))
@@ -149,6 +182,14 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
   }, [createGame, loadGameData, supabase]);
 
   useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      setReaderEnabled(window.localStorage.getItem(QUESTION_READER_TOGGLE_KEY) !== "false");
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
     if (!supabase || !game) {
       return;
     }
@@ -198,6 +239,13 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
         detail: { mode: musicModeForStatus(game?.status) },
       }),
     );
+  }, [game?.status]);
+
+  useEffect(() => {
+    if (game?.status === "lobby") {
+      const timeout = window.setTimeout(() => setCompletedReaderIntroKey(null), 0);
+      return () => window.clearTimeout(timeout);
+    }
   }, [game?.status]);
 
   async function updateGame(fields: Partial<Game>) {
@@ -371,9 +419,24 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
     });
   }
 
+  function toggleQuestionReader() {
+    setReaderEnabled((current) => {
+      const next = !current;
+      window.localStorage.setItem(QUESTION_READER_TOGGLE_KEY, String(next));
+      return next;
+    });
+  }
+
   return (
     <main className="min-h-screen px-3 py-4 sm:px-4 lg:px-5">
       <section className="mx-auto grid max-w-[1660px] gap-4 xl:grid-cols-[360px_minmax(0,1fr)] 2xl:grid-cols-[340px_minmax(0,1fr)]">
+        <HostQuestionReader
+          enabled={readerEnabled}
+          introPlaybackKey={readerIntroPlaybackKey}
+          onIntroComplete={setCompletedReaderIntroKey}
+          question={currentQuestion}
+          status={game?.status}
+        />
         <Card className="bg-paper p-5">
           <Badge className="mb-4 bg-party-yellow">Host lobby</Badge>
           {game ? (
@@ -400,6 +463,15 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
               <Plus aria-hidden="true" />
               New room
             </Button>
+            <Button
+              aria-pressed={readerEnabled}
+              className={readerEnabled ? "bg-party-blue" : "bg-white"}
+              disabled={!game}
+              onClick={toggleQuestionReader}
+            >
+              {readerEnabled ? <Volume2 aria-hidden="true" /> : <VolumeX aria-hidden="true" />}
+              Reader {readerEnabled ? "on" : "off"}
+            </Button>
           </div>
           {!supabase ? (
             <p className="mt-4 font-bold text-red-700">
@@ -422,9 +494,10 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
             <QuestionStage
               answeredCount={answeredCount}
               currentQuestion={currentQuestion}
+              delayCallAudioForReader={delayCallAudioForReader}
               playerCount={players.length}
               remainingMs={remainingMs}
-              statusLabel={statusLabel(game?.status)}
+              status={game?.status}
             />
           )}
 
@@ -473,6 +546,106 @@ export function HostGame({ siteUrl }: { siteUrl: string }) {
       </section>
     </main>
   );
+}
+
+function HostQuestionReader({
+  enabled,
+  introPlaybackKey,
+  onIntroComplete,
+  question,
+  status,
+}: {
+  enabled: boolean;
+  introPlaybackKey: string | null;
+  onIntroComplete: (key: string) => void;
+  question: (typeof questions)[number];
+  status?: GameStatus;
+}) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const lastPlaybackKeyRef = useRef<string | null>(null);
+  const phase = readerPhaseForStatus(status);
+  const src = enabled && phase ? getQuestionReaderAudioPath(question.id, phase) : null;
+
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    if (!audio || !enabled || !phase || !src) {
+      return;
+    }
+
+    const playbackKey = `${question.id}:${phase}:${src}`;
+
+    if (lastPlaybackKeyRef.current === playbackKey) {
+      return;
+    }
+
+    lastPlaybackKeyRef.current = playbackKey;
+    audio.pause();
+    audio.currentTime = 0;
+
+    window.dispatchEvent(
+      new CustomEvent(MUSIC_DUCK_EVENT, {
+        detail: { ducked: true, source: "question-reader" },
+      }),
+    );
+
+    void audio.play().catch(() => {
+      if (phase === "intro" && introPlaybackKey) {
+        onIntroComplete(introPlaybackKey);
+      }
+
+      window.dispatchEvent(
+        new CustomEvent(MUSIC_DUCK_EVENT, {
+          detail: { ducked: false, source: "question-reader" },
+        }),
+      );
+    });
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+      window.dispatchEvent(
+        new CustomEvent(MUSIC_DUCK_EVENT, {
+          detail: { ducked: false, source: "question-reader" },
+        }),
+      );
+    };
+  }, [enabled, introPlaybackKey, onIntroComplete, phase, question.id, src]);
+
+  if (!src) {
+    return null;
+  }
+
+  return (
+    <audio
+      onEnded={() => {
+        if (phase === "intro" && introPlaybackKey) {
+          onIntroComplete(introPlaybackKey);
+        }
+
+        window.dispatchEvent(
+          new CustomEvent(MUSIC_DUCK_EVENT, {
+            detail: { ducked: false, source: "question-reader" },
+          }),
+        );
+      }}
+      preload="auto"
+      ref={audioRef}
+      src={src}
+    />
+  );
+}
+
+function readerPhaseForStatus(status?: GameStatus): QuestionReaderPhase | null {
+  if (status === "question_intro") {
+    return "intro";
+  }
+
+  if (status === "reveal") {
+    return "reveal";
+  }
+
+  return null;
 }
 
 function LobbyStage({
@@ -542,26 +715,29 @@ function LobbyStage({
 function QuestionStage({
   answeredCount,
   currentQuestion,
+  delayCallAudioForReader,
   playerCount,
   remainingMs,
-  statusLabel,
+  status,
 }: {
   answeredCount: number;
   currentQuestion: (typeof questions)[number];
+  delayCallAudioForReader: boolean;
   playerCount: number;
   remainingMs: number;
-  statusLabel: string;
+  status?: GameStatus;
 }) {
-  const isReveal = statusLabel === "Reveal";
+  const stageLabel = statusLabel(status);
+  const isReveal = stageLabel === "Reveal";
   const hasMedia = Boolean(currentQuestion.media.image || currentQuestion.media.audio);
   const callIsActive =
     Boolean(currentQuestion.media.audio) &&
-    (statusLabel === "Question Intro" || statusLabel === "Answering");
+    ((status === "question_intro" && !delayCallAudioForReader) || status === "answering");
 
   return (
     <Card className="bg-white p-5 sm:p-8">
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-        <Badge className="bg-party-blue">{statusLabel}</Badge>
+        <Badge className="bg-party-blue">{stageLabel}</Badge>
         <span className="border-4 border-ink bg-party-yellow px-4 py-2 text-2xl font-black shadow-[4px_4px_0_#111]">
           {Math.ceil(remainingMs / 1000)}s
         </span>
@@ -644,7 +820,7 @@ function CallAudioPlayer({
 
     window.dispatchEvent(
       new CustomEvent(MUSIC_DUCK_EVENT, {
-        detail: { ducked: active },
+        detail: { ducked: active, source: "bird-call" },
       }),
     );
 
@@ -663,7 +839,7 @@ function CallAudioPlayer({
     return () => {
       window.dispatchEvent(
         new CustomEvent(MUSIC_DUCK_EVENT, {
-          detail: { ducked: false },
+          detail: { ducked: false, source: "bird-call" },
         }),
       );
 

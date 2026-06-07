@@ -13,12 +13,13 @@ import {
 } from "@/lib/music";
 
 type MusicModeEvent = CustomEvent<{ mode: MusicMode }>;
-type MusicDuckEvent = CustomEvent<{ ducked: boolean }>;
+type MusicDuckEvent = CustomEvent<{ ducked: boolean; source?: string }>;
 
 export function MusicProvider() {
   const pathname = usePathname();
   const introRef = useRef<HTMLAudioElement>(null);
   const mainRef = useRef<HTMLAudioElement>(null);
+  const duckSourcesRef = useRef(new Set<string>());
   const [ready, setReady] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
   const [mode, setMode] = useState<MusicMode>("intro");
@@ -99,7 +100,16 @@ export function MusicProvider() {
 
   useEffect(() => {
     function handleMusicDuck(event: Event) {
-      setDucked(Boolean((event as MusicDuckEvent).detail?.ducked));
+      const detail = (event as MusicDuckEvent).detail;
+      const source = detail?.source ?? "default";
+
+      if (detail?.ducked) {
+        duckSourcesRef.current.add(source);
+      } else {
+        duckSourcesRef.current.delete(source);
+      }
+
+      setDucked(duckSourcesRef.current.size > 0);
     }
 
     window.addEventListener(MUSIC_DUCK_EVENT, handleMusicDuck);
