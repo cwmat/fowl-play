@@ -18,12 +18,12 @@ export function JoinRoomForm() {
   }
 
   return (
-    <form className="grid gap-3" onSubmit={onSubmit}>
+    <form className="grid min-w-0 gap-3" onSubmit={onSubmit}>
       <label className="text-sm font-black uppercase" htmlFor="room-code">
         Room code
       </label>
       <input
-        className="h-14 border-4 border-ink bg-white px-4 text-center text-3xl font-black uppercase tracking-[0.25em] shadow-[4px_4px_0_#111] outline-none focus:bg-party-yellow"
+        className="h-14 w-full min-w-0 border-4 border-ink bg-white px-4 text-center text-3xl font-black uppercase tracking-[0.25em] shadow-[4px_4px_0_#111] outline-none focus:bg-party-yellow"
         id="room-code"
         inputMode="text"
         maxLength={4}
@@ -31,7 +31,7 @@ export function JoinRoomForm() {
         placeholder="FOWL"
         value={code}
       />
-      <Button className="bg-party-blue" type="submit">
+      <Button className="w-full bg-party-blue" type="submit">
         Join room
       </Button>
     </form>
