@@ -15,7 +15,7 @@ FOWL PLAY is a short, living-room party quiz about birds. The TV host route is t
 - `docs/FOWL_PLAY_GDD.md` - game design, loop, scoring, party-proofing
 - `docs/FOWL_PLAY_TECH_SPEC.md` - stack, Supabase Realtime model, routes, build plan
 - `docs/FOWL_PLAY_QUESTION_BANK.md` - human-readable bank and source notes
-- `docs/avatars.txt` - image prompts for the 8 sticker avatars
+- `docs/avatars.txt` - image prompts for the 12 sticker avatars
 - `public/questions.json` - machine-readable question bank used by the app
 
 ## Current Stack

@@ -197,7 +197,7 @@ Correct answers are intentionally distributed evenly across A, B, C, and D so pl
 
 ## 8. Asset Handling
 
-- **Avatars**: 8 AI images in `/public/avatars/{name}.png`. Square, ~512px, transparent or simple background.
+- **Avatars**: 12 AI images in `/public/avatars/{name}.png`. Square, ~512px, transparent or simple background.
 - **Bird photos**: download from Wikimedia Commons / iNaturalist to `/public/birds/`. Do not hotlink. Keep `CREDITS.md` and `docs/ASSET_MAP.md`.
 - **Bird calls** (if using audio round): download CC clips from xeno-canto to `/public/calls/`, trim to ~5s, keep attribution. Play on the host TV only.
 - **Question reader clips**: generated locally with ElevenLabs via `npm run audio:reader`, written to `/public/reader/`, and mapped by `/public/reader/manifest.json`. The generator stays local-only in `scripts/` and is excluded from Vercel upload; generated clips deploy as static assets.
@@ -273,7 +273,7 @@ Assuming you start this weekend.
 
 - **Day 1**: Scaffold Next.js + Tailwind, install RetroUI, create the Supabase project, add the three tables, and enable Realtime. Build the create-game and join flow and the lobby grid with live avatars via Realtime subscriptions. Get two phones joining a TV view.
 - **Day 2**: Question state machine on the host (status transitions), answer inserts from phones, reveal, scoring, and scoreboard. One round type working end to end.
-- **Day 3**: Drop in the question bank (you already have `questions.json`), generate and wire up the 8 avatars, add the Name That Bird photos and the three bird calls, QR rendering, and the RetroUI styling pass for TV readability.
+- **Day 3**: Drop in the question bank (you already have `questions.json`), generate and wire up the 12 avatars, add the Name That Bird photos and the three bird calls, QR rendering, and the RetroUI styling pass for TV readability.
 - **Day 4**: Leaderboard polish, final results podium and superlatives, host Next/Skip controls, reconnect handling, and the audio round playing on the host only.
 - **Day 5**: Deploy to Vercel, full rehearsal with 2 to 3 phones on your actual TV and wifi, fix whatever breaks.
 - **Buffer**: leave a day. Something always breaks on the real TV.

@@ -12,6 +12,12 @@ Avatars are now loaded from `public/avatars/` and should use these exact names:
 - `chicken.png` - Disco Chicken
 - `penguin.png` - Buff Penguin
 - `seagull.png` - Detective Seagull
+- `goose.png` - Goth Goose
+- `parrot.png` - Captain Parrot
+- `pelican.png` - Snacky Pelican
+- `kiwi.png` - Sneaky Kiwi
+
+The last four are currently stubbed in the app and will fall back to initials until the PNGs exist. Use `docs/avatars.txt` for the exact art prompts.
 
 Bird photos for Name That Bird are staged in `public/birds/`:
 

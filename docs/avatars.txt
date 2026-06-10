@@ -1,30 +1,55 @@
-these are ai prompts for the cahracters in th game should do square aspect ratio 1:1 and just use calls to GPT2 in chatgpt
+These are AI prompts for the character avatars in the game.
 
+Generate square 1:1 images, sticker mascot style, centered portrait, bold outline, flat vibrant colors, simple solid background, cute and funny. Save the final PNGs in `public/avatars/` with the exact filenames below.
 
+## Current Avatar Set
 
+### `owl.png` - Grumpy Owl
 
-Here are your 8 silly bird avatars, sticker style so they read well as icons. Save outputs to /public/avatars/.
+Grumpy cartoon owl, big angry eyebrows, fluffy round body, arms crossed, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny.
 
-Grumpy Owl
-grumpy cartoon owl, big angry eyebrows, fluffy round body, arms crossed, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny
+### `pigeon.png` - Party Pigeon
 
-Party Pidgeon
-chubby city pigeon wearing a tiny party hat, confetti, googly excited eyes, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny
+Chubby city pigeon wearing a tiny party hat, confetti, googly excited eyes, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny.
 
-Cool Flamingo
-pink flamingo wearing sunglasses, relaxed confident pose, one leg up, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cool and funny
+### `flamingo.png` - Cool Flamingo
 
-Derpy Duck
-goofy yellow duck with crossed derpy eyes, tongue out, silly tilted head, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny
+Pink flamingo wearing sunglasses, relaxed confident pose, one leg up, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cool and funny.
 
-Wizard Raven
-black raven wearing a tiny pointed wizard hat and holding a sparkly wand, mischievous eyes, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, funny
+### `duck.png` - Derpy Duck
 
-Disco Chicken
-chicken under a disco ball, mid dance move, sparkles, groovy expression, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, funny and energetic
+Goofy yellow duck with crossed derpy eyes, tongue out, silly tilted head, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny.
 
-Buff Penguin
-muscular penguin flexing big arms, confident grin, tiny body big muscles, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, silly and funny
+### `raven.png` - Wizard Raven
 
-Detective Seagull
-seagull wearing a detective hat and holding a magnifying glass, suspicious squinting eyes, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, funny
+Black raven wearing a tiny pointed wizard hat and holding a sparkly wand, mischievous eyes, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, funny.
+
+### `chicken.png` - Disco Chicken
+
+Chicken under a disco ball, mid dance move, sparkles, groovy expression, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, funny and energetic.
+
+### `penguin.png` - Buff Penguin
+
+Muscular penguin flexing big arms, confident grin, tiny body big muscles, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, silly and funny.
+
+### `seagull.png` - Detective Seagull
+
+Seagull wearing a detective hat and holding a magnifying glass, suspicious squinting eyes, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, funny.
+
+## New Avatar Art To Generate
+
+### `goose.png` - Goth Goose
+
+White goose with dramatic black goth eyeliner, tiny black jacket, unimpressed stare, one wing posed like it is judging everyone, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny.
+
+### `parrot.png` - Captain Parrot
+
+Colorful parrot wearing a tiny pirate captain hat and little cape, proud heroic pose, playful confident grin, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny.
+
+### `pelican.png` - Snacky Pelican
+
+Pelican with an oversized beak pouch full of popcorn and party snacks, delighted expression, crumbs flying, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny.
+
+### `kiwi.png` - Sneaky Kiwi
+
+Round kiwi bird dressed like a tiny ninja, soft brown feathers, peeking from behind one wing, mischievous eyes, sticker mascot style, bold outline, flat vibrant colors, centered portrait, simple solid background, cute and funny.

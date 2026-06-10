@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import { avatars, type AvatarId } from "@/data/avatars";
 import { cn } from "@/lib/cn";
 
@@ -15,6 +18,8 @@ export function AvatarTile({
 }) {
   const avatar = avatars.find((item) => item.id === avatarId) ?? avatars[0];
   const imageSize = size === "lg" ? 96 : size === "sm" ? 56 : 72;
+  const [failedFile, setFailedFile] = useState<string | null>(null);
+  const imageFailed = failedFile === avatar.file;
 
   return (
     <div
@@ -28,13 +33,20 @@ export function AvatarTile({
         className="relative mx-auto mb-2 overflow-hidden border-4 border-ink bg-party-yellow"
         style={{ width: imageSize, height: imageSize }}
       >
-        <Image
-          alt={avatar.name}
-          className="object-cover"
-          fill
-          sizes={`${imageSize}px`}
-          src={avatar.file}
-        />
+        {imageFailed ? (
+          <div className="flex h-full w-full items-center justify-center text-2xl">
+            {avatar.initials}
+          </div>
+        ) : (
+          <Image
+            alt={avatar.name}
+            className="object-cover"
+            fill
+            onError={() => setFailedFile(avatar.file)}
+            sizes={`${imageSize}px`}
+            src={avatar.file}
+          />
+        )}
       </div>
       <p className="truncate text-sm">{avatar.name}</p>
     </div>

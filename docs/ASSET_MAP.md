@@ -14,6 +14,10 @@ This is the quick map of runtime assets used by FOWL PLAY. Keep source/legal det
 | `public/avatars/chicken.png` | Disco Chicken |
 | `public/avatars/penguin.png` | Buff Penguin |
 | `public/avatars/seagull.png` | Detective Seagull |
+| `public/avatars/goose.png` | Goth Goose |
+| `public/avatars/parrot.png` | Captain Parrot |
+| `public/avatars/pelican.png` | Snacky Pelican |
+| `public/avatars/kiwi.png` | Sneaky Kiwi |
 
 ## Bird Photos
 

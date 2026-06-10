@@ -145,7 +145,7 @@ Still open: whether to add a small custom round of inside-joke questions for you
 
 ## Appendix A: Silly Bird Avatar Prompts (txt2img)
 
-Generate these as square sticker-style icons. Suggested set of 8. Full prompts delivered separately in chat. Save outputs to `/public/avatars/` as `owl.png`, `pigeon.png`, etc.
+Generate these as square sticker-style icons. Current set of 12 lives in `docs/avatars.txt`. Save outputs to `/public/avatars/` with the exact filenames listed there.
 
 1. Grumpy Owl
 2. Party Pigeon
@@ -155,3 +155,7 @@ Generate these as square sticker-style icons. Suggested set of 8. Full prompts d
 6. Disco Chicken
 7. Buff Penguin
 8. Detective Seagull
+9. Goth Goose
+10. Captain Parrot
+11. Snacky Pelican
+12. Sneaky Kiwi
